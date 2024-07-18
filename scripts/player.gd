@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const BASE_SPEED = 400.0
 const BOOST = 500.0
 
+var speed = BASE_SPEED
 
 func _physics_process(delta):
 
@@ -10,7 +11,7 @@ func _physics_process(delta):
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO
 		

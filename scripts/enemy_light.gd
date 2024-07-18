@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -100.0
 var player_visible = 0
 
 
@@ -32,3 +32,8 @@ func _on_area_2d_body_exited(body):
 		if player_visible == body.player_id():
 			player_visible = 0
 
+
+
+func _on_timer_timeout():
+	if player_visible !=0:
+		
