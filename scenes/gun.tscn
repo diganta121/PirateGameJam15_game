@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dswonmor6mes1"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_kujmv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yen7j"]
+radius = 471.228
+
+[node name="Gun" type="Area2D"]
+position = Vector2(2, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_kujmv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yen7j")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="Pistol" type="Sprite2D" parent="Pivot"]
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(5, -2)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
