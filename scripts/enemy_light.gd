@@ -1,39 +1,24 @@
 extends CharacterBody2D
 
+@onready var player = get_node("/root/TestScene/Player")
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -100.0
-var player_visible = 0
+const SPEED = 100.0
+var player_visible = false
 
-
+var c = 0
 func _physics_process(delta):
-	
+	c = 0
+	for body in $Area2D.get_overlapping_bodies():
+		if body.has_method('player_id'):
+			c=1
+			player_visible = true
+	if c == 0:
+		player_visible = false
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	if player_visible:
+		var direction = global_position.direction_to(player.global_position)
+		velocity = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity = Vector2.ZERO
 	move_and_slide()
-
-
-
-func _on_area_2d_body_entered(body):
-	if body.has_method('player_id'):
-		player_visible = body.player_id()
-
-
-
-func _on_area_2d_body_exited(body):
-	if body.has_method('player_id'):
-		if player_visible == body.player_id():
-			player_visible = 0
-
-
-
-func _on_timer_timeout():
-	if player_visible !=0:
-		

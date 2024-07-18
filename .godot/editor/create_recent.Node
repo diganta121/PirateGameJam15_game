@@ -1,9 +1,10 @@
+Marker2D
+Area2D
 Node
 Timer
 CollisionShape2D
 CharacterBody2D
 StaticBody2D
-Area2D
 AnimatedSprite2D
 Camera2D
 AnimatableBody2D
@@ -11,5 +12,3 @@ MarginContainer
 HBoxContainer
 Panel
 Button
-Control
-VBoxContainer
