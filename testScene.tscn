@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgmirs38kg4v2"]
+
+[ext_resource type="PackedScene" uid="uid://cx4gcxr627pis" path="res://scenes/player.tscn" id="1_yedvc"]
+[ext_resource type="PackedScene" uid="uid://b3wx380t3cfv" path="res://scenes/enemy_light.tscn" id="2_xf5e5"]
+[ext_resource type="PackedScene" uid="uid://b6ysiqcui2s5g" path="res://scenes/platform1.tscn" id="3_khouu"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yedvc")]
+position = Vector2(4, 5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="EnemyLight" parent="." instance=ExtResource("2_xf5e5")]
+position = Vector2(-276, -108)
+
+[node name="EnemyLight2" parent="." instance=ExtResource("2_xf5e5")]
+position = Vector2(648, 261)
+
+[node name="EnemyLight3" parent="." instance=ExtResource("2_xf5e5")]
+position = Vector2(420, -200)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_khouu")]
+position = Vector2(-327, 117)
+scale = Vector2(3.27549, 2.46513)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_khouu")]
+position = Vector2(382, -108)
+scale = Vector2(2.96364, 2.40595)
