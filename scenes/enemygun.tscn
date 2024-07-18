@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dswonmor6mes1"]
+[gd_scene load_steps=4 format=3 uid="uid://hix7pyn0od8r"]
 
-[ext_resource type="Script" path="res://scripts/gun.gd" id="1_kujmv"]
-[ext_resource type="Texture2D" uid="uid://quoakqpeckm" path="res://assets/bullet.png" id="2_frjhr"]
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_ugtmp"]
+[ext_resource type="Texture2D" uid="uid://quoakqpeckm" path="res://assets/bullet.png" id="2_c3ivr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yen7j"]
-radius = 471.228
+radius = 421.03
 
-[node name="Gun" type="Area2D"]
+[node name="EnenyGun" type="Area2D"]
 position = Vector2(2, 0)
 collision_layer = 0
-collision_mask = 2
-script = ExtResource("1_kujmv")
+collision_mask = 4
+script = ExtResource("1_ugtmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -21,7 +21,7 @@ position = Vector2(-2, 0)
 
 [node name="Pistol" type="Sprite2D" parent="Pivot"]
 position = Vector2(42, -12)
-texture = ExtResource("2_frjhr")
+texture = ExtResource("2_c3ivr")
 
 [node name="ShootingPoint" type="Marker2D" parent="Pivot/Pistol"]
 unique_name_in_owner = true
