@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://doeupmqpx6swi"]
+[gd_scene load_steps=10 format=3 uid="uid://doeupmqpx6swi"]
 
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="1_jlki8"]
 [ext_resource type="PackedScene" uid="uid://c8mjn0h2l8561" path="res://scenes/sword.tscn" id="2_c4qdp"]
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="2_hsd3w"]
+[ext_resource type="PackedScene" uid="uid://dw33yjkn827ld" path="res://scenes/ledge.tscn" id="4_80vdp"]
+[ext_resource type="PackedScene" uid="uid://wockht43v4fl" path="res://scenes/dark_boss.tscn" id="5_ws2vl"]
+[ext_resource type="PackedScene" uid="uid://dswonmor6mes1" path="res://scenes/gun.tscn" id="6_3fsck"]
+[ext_resource type="PackedScene" uid="uid://b7swo28m1mwdh" path="res://scenes/paths/path1.tscn" id="7_deynb"]
+[ext_resource type="PackedScene" uid="uid://8n4nbql7ovsm" path="res://scenes/paths/pathT.tscn" id="8_4ag5w"]
+[ext_resource type="PackedScene" uid="uid://c3yclwciejcuy" path="res://scenes/paths/pathL.tscn" id="9_mxyh8"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -14,6 +20,59 @@
 
 [node name="enemy1" parent="." instance=ExtResource("2_hsd3w")]
 position = Vector2(-585, 224)
+motion_mode = 1
 
 [node name="enemy2" parent="." instance=ExtResource("2_hsd3w")]
 position = Vector2(-487, -299)
+
+[node name="BigLedge" parent="." instance=ExtResource("4_80vdp")]
+position = Vector2(-55, 79)
+
+[node name="DarkBoss" parent="." instance=ExtResource("5_ws2vl")]
+position = Vector2(742, -11)
+
+[node name="Gun" parent="DarkBoss" instance=ExtResource("6_3fsck")]
+position = Vector2(0, -20)
+
+[node name="paths" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="Path3" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(290, 391)
+
+[node name="Path1" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-10, 391)
+
+[node name="Path2" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-310, 391)
+
+[node name="PathT" parent="paths" instance=ExtResource("8_4ag5w")]
+position = Vector2(-568, 360)
+
+[node name="Path4" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-565, 137)
+rotation = 1.5708
+
+[node name="Path5" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(545, 137)
+rotation = 1.5708
+
+[node name="PathL" parent="paths" instance=ExtResource("9_mxyh8")]
+position = Vector2(513, 390)
+rotation = -1.57079
+
+[node name="PathT2" parent="paths" instance=ExtResource("8_4ag5w")]
+position = Vector2(-596, -105)
+rotation = -1.57079
+
+[node name="Path6" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-820, -108)
+
+[node name="Path7" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-1120, -108)
+
+[node name="Path8" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-1420, -108)
+
+[node name="Path9" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-1720, -108)

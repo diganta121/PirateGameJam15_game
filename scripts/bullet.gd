@@ -16,3 +16,14 @@ func _on_body_entered(body):
 	queue_free()
 	if body.has_method("take_damage"):
 		body.take_damage(DAMAGE)
+
+func bullet_id():
+	return 0
+
+func block_bullet():
+	var c = randf()
+	if c <0.3:
+		SPEED = -SPEED
+	else:
+		queue_free()
+	

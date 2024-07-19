@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw33yjkn827ld"]
+
+[ext_resource type="Texture2D" uid="uid://qufcv75rwupv" path="res://assets/big ledge.png" id="1_cu3om"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weeok"]
+size = Vector2(62, 4)
+
+[node name="BigLedge" type="StaticBody2D"]
+scale = Vector2(1.97424, 1.9844)
+
+[node name="BigLedge" type="Sprite2D" parent="."]
+position = Vector2(-9, -3)
+rotation = -3.14159
+texture = ExtResource("1_cu3om")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_weeok")
+one_way_collision = true
+one_way_collision_margin = 0.0

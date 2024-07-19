@@ -1,17 +1,25 @@
 extends Area2D
 var enable_shoot = false
+
+
 const BULLET_TYPES = {
 	"bullet1":"res://scenes/bullet.tscn",
 	"bullet2":"res://scenes/bullet2.tscn",
 	"bullet3":"res://scenes/bullet.tscn"
 }
-@export var bulletType='bullet1' 
+@export var bulletType='bullet1'
+var target_pos = Vector2.ZERO
+
+
 func _physics_process(delta):
 	var enemies = get_overlapping_bodies()
 	if enemies.size() > 0 :
-		enable_shoot = true
-		var targer_enemy = enemies.front()
-		look_at(targer_enemy.global_position)
+		for i in enemies:
+			if i.has_method('player_id'):
+				enable_shoot = true
+				target_pos = i.global_position
+				break
+		look_at(target_pos)
 	else :
 		enable_shoot = false
 

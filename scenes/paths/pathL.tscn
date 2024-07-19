@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3yclwciejcuy"]
+
+[ext_resource type="Texture2D" uid="uid://bebv3bkwj5kpy" path="res://assets/pathL.png" id="1_676r8"]
+
+[node name="PathL" type="Node2D"]
+
+[node name="PathL" type="Sprite2D" parent="."]
+position = Vector2(34, -3)
+texture = ExtResource("1_676r8")

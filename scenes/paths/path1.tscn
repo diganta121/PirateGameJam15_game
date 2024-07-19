@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7swo28m1mwdh"]
+
+[ext_resource type="Texture2D" uid="uid://bcq2estonffq6" path="res://assets/path1.png" id="1_o0ybm"]
+
+[node name="Path1" type="Node2D"]
+
+[node name="Path1" type="Sprite2D" parent="."]
+position = Vector2(-100, 0)
+texture = ExtResource("1_o0ybm")
+
+[node name="Path2" type="Sprite2D" parent="."]
+texture = ExtResource("1_o0ybm")
+
+[node name="Path3" type="Sprite2D" parent="."]
+position = Vector2(100, 0)
+texture = ExtResource("1_o0ybm")

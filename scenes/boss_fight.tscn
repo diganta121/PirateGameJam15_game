@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bps4miqaqwy54"]
+[gd_scene load_steps=3 format=3 uid="uid://bps4miqaqwy54"]
+
+[ext_resource type="PackedScene" uid="uid://wockht43v4fl" path="res://scenes/dark_boss.tscn" id="1_hswm7"]
+[ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_se1g0"]
 
 [node name="bossFight" type="Node2D"]
+
+[node name="DarkBoss" parent="." instance=ExtResource("1_hswm7")]
+position = Vector2(-1, -36)
+
+[node name="Player" parent="." instance=ExtResource("2_se1g0")]
+position = Vector2(521, -45)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

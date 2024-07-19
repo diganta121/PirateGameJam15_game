@@ -6,7 +6,7 @@ signal player_dead
 func _physics_process(delta):
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	
-	velocity = direc * 650
+	velocity = direc * 650 
 	move_and_slide()
 	
 	#if velocity.length() > 0.0:
@@ -20,4 +20,6 @@ func _physics_process(delta):
 		health -= DAMAGE * delta
 		if health <= 0.0:
 			player_dead.emit()
+func player_id():
+	return 1
 
