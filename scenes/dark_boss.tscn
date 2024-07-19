@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://wockht43v4fl"]
+
+[ext_resource type="Texture2D" uid="uid://degx8qk5sl4rk" path="res://assets/bass.png" id="1_0luto"]
+[ext_resource type="PackedScene" uid="uid://dswonmor6mes1" path="res://scenes/gun.tscn" id="2_fcsoa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5kkn"]
+radius = 17.0
+height = 78.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv48g"]
+radius = 33.0151
+
+[node name="DarkBoss" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r5kkn")
+
+[node name="ShockWaveArea2D" type="Area2D" parent="."]
+position = Vector2(1, 33)
+scale = Vector2(-3.1313, 0.457217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShockWaveArea2D"]
+shape = SubResource("CircleShape2D_fv48g")
+
+[node name="Bass" type="Sprite2D" parent="."]
+position = Vector2(-2, -5.58794e-09)
+rotation = 1.58709
+scale = Vector2(1.32958, 1.55729)
+texture = ExtResource("1_0luto")
+
+[node name="Gun" parent="." instance=ExtResource("2_fcsoa")]
+position = Vector2(2, -24)
+scale = Vector2(0.718682, 0.279767)

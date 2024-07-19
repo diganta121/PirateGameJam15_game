@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://doeupmqpx6swi"]
+[gd_scene load_steps=4 format=3 uid="uid://doeupmqpx6swi"]
 
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="1_jlki8"]
+[ext_resource type="PackedScene" uid="uid://c8mjn0h2l8561" path="res://scenes/sword.tscn" id="2_c4qdp"]
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="2_hsd3w"]
 
 [node name="TestScene" type="Node2D"]
@@ -8,6 +9,8 @@
 [node name="Player" parent="." instance=ExtResource("1_jlki8")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="sword" parent="Player" instance=ExtResource("2_c4qdp")]
 
 [node name="enemy1" parent="." instance=ExtResource("2_hsd3w")]
 position = Vector2(-585, 224)

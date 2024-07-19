@@ -1,5 +1,11 @@
 extends Area2D
 var enable_shoot = false
+const BULLET_TYPES = {
+	"bullet1":"res://scenes/bullet.tscn",
+	"bullet2":"res://scenes/bullet2.tscn",
+	"bullet3":"res://scenes/bullet.tscn"
+}
+@export var bulletType='bullet1' 
 func _physics_process(delta):
 	var enemies = get_overlapping_bodies()
 	if enemies.size() > 0 :
@@ -8,7 +14,7 @@ func _physics_process(delta):
 		look_at(targer_enemy.global_position)
 	else :
 		enable_shoot = false
-		
+
 func shoot():
 	const BULLET = preload("res://scenes/bullet.tscn")
 	var new_bullet = BULLET.instantiate()
