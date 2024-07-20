@@ -1,7 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://doeupmqpx6swi"]
+[gd_scene load_steps=8 format=3 uid="uid://doeupmqpx6swi"]
 
-[ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="1_jlki8"]
-[ext_resource type="PackedScene" uid="uid://c8mjn0h2l8561" path="res://scenes/sword.tscn" id="2_c4qdp"]
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="2_hsd3w"]
 [ext_resource type="PackedScene" uid="uid://dw33yjkn827ld" path="res://scenes/ledge.tscn" id="4_80vdp"]
 [ext_resource type="PackedScene" uid="uid://wockht43v4fl" path="res://scenes/dark_boss.tscn" id="5_ws2vl"]
@@ -11,12 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c3yclwciejcuy" path="res://scenes/paths/pathL.tscn" id="9_mxyh8"]
 
 [node name="TestScene" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_jlki8")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="sword" parent="Player" instance=ExtResource("2_c4qdp")]
 
 [node name="enemy1" parent="." instance=ExtResource("2_hsd3w")]
 position = Vector2(-585, 224)
@@ -29,50 +21,143 @@ position = Vector2(-487, -299)
 position = Vector2(-55, 79)
 
 [node name="DarkBoss" parent="." instance=ExtResource("5_ws2vl")]
-position = Vector2(742, -11)
+position = Vector2(459, 38)
+motion_mode = 1
 
 [node name="Gun" parent="DarkBoss" instance=ExtResource("6_3fsck")]
 position = Vector2(0, -20)
+bulletType = "bullet2"
 
 [node name="paths" type="Node2D" parent="."]
 show_behind_parent = true
 
-[node name="Path3" parent="paths" instance=ExtResource("7_deynb")]
-position = Vector2(290, 391)
-
-[node name="Path1" parent="paths" instance=ExtResource("7_deynb")]
-position = Vector2(-10, 391)
-
-[node name="Path2" parent="paths" instance=ExtResource("7_deynb")]
-position = Vector2(-310, 391)
-
-[node name="PathT" parent="paths" instance=ExtResource("8_4ag5w")]
-position = Vector2(-568, 360)
-
 [node name="Path4" parent="paths" instance=ExtResource("7_deynb")]
-position = Vector2(-565, 137)
+position = Vector2(-2022, 427)
 rotation = 1.5708
-
-[node name="Path5" parent="paths" instance=ExtResource("7_deynb")]
-position = Vector2(545, 137)
-rotation = 1.5708
-
-[node name="PathL" parent="paths" instance=ExtResource("9_mxyh8")]
-position = Vector2(513, 390)
-rotation = -1.57079
 
 [node name="PathT2" parent="paths" instance=ExtResource("8_4ag5w")]
-position = Vector2(-596, -105)
+position = Vector2(-2099, -101)
 rotation = -1.57079
 
-[node name="Path6" parent="paths" instance=ExtResource("7_deynb")]
+[node name="PathT4" parent="paths" instance=ExtResource("8_4ag5w")]
+position = Vector2(-1945, -636)
+rotation = 1.57079
+
+[node name="Path10" parent="paths" instance=ExtResource("7_deynb")]
+position = Vector2(-2022, -1164)
+rotation = 1.57079
+
+[node name="top right path" type="Node2D" parent="paths"]
+position = Vector2(-305, 191)
+
+[node name="PathT5" parent="paths/top right path" instance=ExtResource("8_4ag5w")]
+position = Vector2(10.5, -742)
+rotation = 3.14159
+
+[node name="Path11" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(538, -819)
+
+[node name="Path12" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(2233.5, -819)
+
+[node name="Path13" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(1138, -819)
+
+[node name="Node2D4" type="Node2D" parent="paths/top right path"]
+position = Vector2(-854, -821)
+rotation = 3.14159
+
+[node name="Path10" parent="paths/top right path/Node2D4" instance=ExtResource("7_deynb")]
+position = Vector2(303, -1.9986)
+
+[node name="Path11" parent="paths/top right path/Node2D4" instance=ExtResource("7_deynb")]
+position = Vector2(-297, -2.00127)
+
+[node name="PathT" parent="paths/top right path" instance=ExtResource("8_4ag5w")]
+position = Vector2(1666, -896)
+
+[node name="Path1" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(3, -259)
+rotation = 1.57079
+
+[node name="Path3" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(2794, -258)
+rotation = 1.57079
+
+[node name="Path2" parent="paths/top right path" instance=ExtResource("7_deynb")]
+position = Vector2(1673, -1379)
+rotation = 1.57079
+
+[node name="PathL" parent="paths/top right path" instance=ExtResource("9_mxyh8")]
+position = Vector2(2791.5, -739)
+rotation = 3.14159
+
+[node name="bottom right" type="Node2D" parent="paths"]
+position = Vector2(-1061.5, 586)
+
+[node name="Path3" parent="paths/bottom right" instance=ExtResource("7_deynb")]
+position = Vector2(799, 401)
+
+[node name="Path1" parent="paths/bottom right" instance=ExtResource("7_deynb")]
+position = Vector2(199, 401)
+
+[node name="Path2" parent="paths/bottom right" instance=ExtResource("7_deynb")]
+position = Vector2(-400.5, 401)
+
+[node name="PathT" parent="paths/bottom right" instance=ExtResource("8_4ag5w")]
+position = Vector2(-968, 324)
+
+[node name="Path5" parent="paths/bottom right" instance=ExtResource("7_deynb")]
+position = Vector2(1360, 962)
+rotation = 1.5708
+
+[node name="PathL" parent="paths/bottom right" instance=ExtResource("9_mxyh8")]
+position = Vector2(1357, 481)
+rotation = -3.14159
+
+[node name="left path" type="Node2D" parent="paths"]
+position = Vector2(-1762, 0)
+
+[node name="Path6" parent="paths/left path" instance=ExtResource("7_deynb")]
 position = Vector2(-820, -108)
 
-[node name="Path7" parent="paths" instance=ExtResource("7_deynb")]
+[node name="Path7" parent="paths/left path" instance=ExtResource("7_deynb")]
 position = Vector2(-1120, -108)
 
-[node name="Path8" parent="paths" instance=ExtResource("7_deynb")]
+[node name="Path8" parent="paths/left path" instance=ExtResource("7_deynb")]
 position = Vector2(-1420, -108)
 
-[node name="Path9" parent="paths" instance=ExtResource("7_deynb")]
+[node name="Path9" parent="paths/left path" instance=ExtResource("7_deynb")]
 position = Vector2(-1720, -108)
+
+[node name="PathT3" parent="paths/left path" instance=ExtResource("8_4ag5w")]
+position = Vector2(-2150, -185)
+
+[node name="Node2D2" type="Node2D" parent="paths/left path"]
+position = Vector2(-3387, -108)
+rotation = 3.14159
+
+[node name="Path10" parent="paths/left path/Node2D2" instance=ExtResource("7_deynb")]
+position = Vector2(-109, -0.0022583)
+
+[node name="Path11" parent="paths/left path/Node2D2" instance=ExtResource("7_deynb")]
+position = Vector2(-409, -0.0022583)
+
+[node name="Path12" parent="paths/left path/Node2D2" instance=ExtResource("7_deynb")]
+position = Vector2(-709, -0.0022583)
+
+[node name="Node2D" type="Node2D" parent="paths/left path"]
+position = Vector2(-2142, -559)
+rotation = 1.57079
+
+[node name="Path10" parent="paths/left path/Node2D" instance=ExtResource("7_deynb")]
+position = Vector2(-109, -0.0022583)
+
+[node name="Path11" parent="paths/left path/Node2D" instance=ExtResource("7_deynb")]
+position = Vector2(-409, -0.0022583)
+
+[node name="Path12" parent="paths/left path/Node2D" instance=ExtResource("7_deynb")]
+position = Vector2(-709, -0.0022583)
+
+[node name="enemy3" parent="." instance=ExtResource("2_hsd3w")]
+position = Vector2(1010, -269)

@@ -1,18 +1,19 @@
 extends CharacterBody2D
-const SPEED = 100.0
-
-var player_visible = false
-var direction = Vector2.ZERO
-var move_timer = 0
+const SPEED := 100.0
+var player_visible := false
+var direction := Vector2.ZERO
+var move_timer := 0
 var player
 
-func _physics_process(delta):
+@export var health := 300
+
+func _physics_process(delta) -> void:
 	if not player:
 		return
 	if move_timer <= 0:
 		move_timer = randi_range(2,200)
 	move_timer -= 1
-	var distance = global_position.distance_to(player.global_position)
+	var distance := global_position.distance_to(player.global_position)
 
 	if distance < 70:
 		if randf() < 0.1:
@@ -31,17 +32,41 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	move_and_slide()
 
-func smash_attack():
+func smash_attack() -> void:
 	for i in $ShockWaveArea2D.get_overlapping_bodies():
-		if i.has_method("player_id"):
-			i.take_damage(100)
+		if i.has_method("player_id") or i.has_method("enemy_id") :
+			i.take_damage(80)
 
-func melee_attack():
+func melee_attack() -> void:
 	pass 
 
-	
-func _on_attack_range_body_entered(body):
+func _on_attack_range_body_entered(body)-> void:
 	if body.has_method("player_id"):
 			player = body
 			print("player")
+
+func enemy_id() -> int:
+	return 2
+
+func take_damage(damage)-> void:
+	health -= damage
+	if health <= 0:
+		print('dead')
+		queue_free()
+
+func summon_enemies() -> void:
+	# every 5 sec summon random amount of enemies
+	# arround the boss
+	#play summon animation
+	%PathFollow2D.progress_ratio = randf()
 	
+	var enemy_char = preload("res://scenes/enemy_1.tscn").instantiate()
+	enemy_char.global_position = %PathFollow2D.global_position
+	enemy_char.global_position.y += 1000
+	get_parent().add_child(enemy_char)
+	print('e spawned')
+
+func _on_timer_timeout() -> void:
+	var num := randi_range(2,9)
+	for i in range(num):
+		summon_enemies()

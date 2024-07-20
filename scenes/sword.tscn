@@ -4,12 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://quoakqpeckm" path="res://assets/bullet.png" id="2_lan3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yen7j"]
-radius = 62.66
+radius = 90.6534
 
 [node name="sword" type="Area2D"]
 position = Vector2(2, 0)
-collision_layer = 2
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_no0fk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

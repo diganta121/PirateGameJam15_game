@@ -9,10 +9,11 @@ radius = 11.0454
 [node name="Bullet2" type="Area2D"]
 top_level = true
 position = Vector2(1, 0)
-collision_layer = 0
-collision_mask = 3
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_qioit")
 DAMAGE = 30
+SPEED = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bb72f")

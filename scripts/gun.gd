@@ -5,9 +5,9 @@ var enable_shoot = false
 const BULLET_TYPES = {
 	"bullet1":"res://scenes/bullet.tscn",
 	"bullet2":"res://scenes/bullet2.tscn",
-	"bullet3":"res://scenes/bullet.tscn"
+	"bullet3":"res://scenes/bullet3.tscn"
 }
-@export var bulletType='bullet1'
+@export var bulletType='bullet3'
 var target_pos = Vector2.ZERO
 
 
