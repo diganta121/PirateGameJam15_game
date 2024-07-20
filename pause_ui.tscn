@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://db13n0tunykgv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+current_tab = 1
+
+[node name="pause" type="VBoxContainer" parent="AspectRatioContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="AspectRatioContainer/TabContainer/pause"]
+custom_minimum_size = Vector2(100, 37.4)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/TabContainer/pause"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/TabContainer/pause"]
+layout_mode = 2
+text = "settings"
+
+[node name="Button3" type="Button" parent="AspectRatioContainer/TabContainer/pause"]
+layout_mode = 2
+text = "Exit"
+
+[node name="craft" type="VBoxContainer" parent="AspectRatioContainer/TabContainer"]
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="AspectRatioContainer/TabContainer/craft"]
+custom_minimum_size = Vector2(100, 37.4)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/TabContainer/craft"]
+layout_mode = 2
+text = "invis"
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/TabContainer/craft"]
+layout_mode = 2
+text = "strength"

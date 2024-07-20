@@ -55,14 +55,13 @@ func take_damage(damage)-> void:
 		queue_free()
 
 func summon_enemies() -> void:
-	# every 5 sec summon random amount of enemies
-	# arround the boss
-	#play summon animation
-	%PathFollow2D.progress_ratio = randf()
+	# every 5 sec summon random amount of enemies 
+	# arround the boss 
+	# play summon animation 
+
 	
 	var enemy_char = preload("res://scenes/enemy_1.tscn").instantiate()
-	enemy_char.global_position = %PathFollow2D.global_position
-	enemy_char.global_position.y += 1000
+	enemy_char.global_position = global_position
 	get_parent().add_child(enemy_char)
 	print('e spawned')
 
