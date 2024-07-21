@@ -3,12 +3,15 @@ const SPEED := 100.0
 @onready var player = get_node("/root/Scene/Player")
 var player_visible := false
 var direction := Vector2.ZERO
-@export var health = 100
+@export var health = 50
+
+func _ready():
+	velocity = Vector2.ZERO
+	move_and_slide()
 
 func _physics_process(delta) -> void:
 
 	var distance := global_position.distance_to(player.global_position)
-
 	if distance < 70:
 		if randf() < 0.1:
 			direction = -direction

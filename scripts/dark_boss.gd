@@ -60,9 +60,12 @@ func summon_enemies() -> void:
 	# play summon animation 
 
 	
-	var enemy_char = preload("res://scenes/enemy_1.tscn").instantiate()
-	enemy_char.global_position = global_position
-	get_parent().add_child(enemy_char)
+	var enemy_char = preload("res://scenes/enemy_1.tscn").instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	
+	enemy_char.global_position = global_position.normalized()
+	enemy_char.velocity = Vector2.ZERO
+	enemy_char.move_and_slide()
+	add_child(enemy_char)
 	print('e spawned')
 
 func _on_timer_timeout() -> void:

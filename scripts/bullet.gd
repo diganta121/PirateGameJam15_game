@@ -1,10 +1,10 @@
 extends Area2D
 
-var travel_dist = 0 
+var travel_dist := 0 
 @export var DAMAGE := 10
 @export var RANGE := 1200
 @export var SPEED := 1100
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
 	travel_dist += SPEED * delta
@@ -12,18 +12,19 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_body_entered(body):
+func _on_body_entered(body) -> void:
 	queue_free()
 	if body.has_method("take_damage"):
 		body.take_damage(DAMAGE)
 
-func bullet_id():
+func bullet_id() -> int:
 	return 0
 
-func block_bullet():
+func block_bullet() -> void:
+	print("blocked")
 	var c = randf()
-	if c <0.3:
-		SPEED = -SPEED
+	if c <0.5:
+		SPEED *= -1
 	else:
 		queue_free()
-	
+
