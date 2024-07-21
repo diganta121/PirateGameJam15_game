@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://depguk060dslk"]
 
-[ext_resource type="PackedScene" uid="uid://doeupmqpx6swi" path="res://test_scene.tscn" id="1_v65mv"]
+[ext_resource type="PackedScene" uid="uid://doeupmqpx6swi" path="res://scenes/env/test_scene.tscn" id="1_v65mv"]
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_6me2q"]
 [ext_resource type="PackedScene" uid="uid://c8mjn0h2l8561" path="res://scenes/sword.tscn" id="3_dqd1r"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_a1xyp"]
