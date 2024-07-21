@@ -1,0 +1,312 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1to2hvb1e7vg"]
+
+[ext_resource type="Script" path="res://ui/esc_menu.gd" id="1_g5hv7"]
+[ext_resource type="FontFile" uid="uid://du1rhace7jr11" path="res://assets/PixelOperator8-Bold.ttf" id="1_mcx2x"]
+[ext_resource type="Shader" path="res://ui/esc_menu.gdshader" id="2_foh3r"]
+[ext_resource type="FontFile" uid="uid://dbvie114nxi63" path="res://assets/PixelOperator8.ttf" id="2_nyj8m"]
+[ext_resource type="Texture2D" uid="uid://c81v66833hw0k" path="res://assets/p1.png" id="3_dvejj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_226h5"]
+shader = ExtResource("2_foh3r")
+shader_parameter/amount = 3.0
+
+[node name="esc_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5hv7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_226h5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4301.0
+offset_top = -3054.0
+offset_right = 5106.0
+offset_bottom = 2695.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_selected_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_constants/side_margin = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="Resume" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="gpaused" type="Label" parent="TabContainer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.5
+offset_top = -134.5
+offset_right = 370.5
+offset_bottom = -78.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 56
+text = "Game paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Resume"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -28.5
+offset_right = 45.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.66951, 1.66951)
+
+[node name="resume" type="Button" parent="TabContainer/Resume/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_hover_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_disabled_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_outline_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "Resume"
+
+[node name="settings" type="Button" parent="TabContainer/Resume/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_pressed_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_hover_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_focus_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_disabled_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_colors/font_outline_color = Color(0.647059, 0.356863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[node name="quit" type="Button" parent="TabContainer/Resume/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.833812, 0.302047, 0.253041, 1)
+theme_override_colors/font_pressed_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_colors/font_hover_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_colors/font_focus_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_colors/font_disabled_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0.835294, 0.301961, 0.254902, 1)
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[node name="Potions" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Potionlabel" type="Label" parent="TabContainer/Potions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_top = 38.0
+offset_right = 0.5
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.648691, 0.35747, 0.957548, 1)
+theme_override_fonts/font = ExtResource("1_mcx2x")
+theme_override_font_sizes/font_size = 48
+text = "Potions"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Potionlabel2" type="Label" parent="TabContainer/Potions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -585.0
+offset_top = -191.0
+offset_right = 565.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 24
+text = "Create potions"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Potions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -124.0
+offset_right = 370.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="TabContainer/Potions/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Potions/MarginContainer/vbox"]
+layout_mode = 2
+tooltip_text = "Grant user invisibility"
+mouse_filter = 0
+theme_override_constants/separation = 32
+
+[node name="Texture" type="TextureRect" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_dvejj")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 24
+text = "Invisibility"
+
+[node name="imvisButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "craft 
+5 potions + 3 silver"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Potions/MarginContainer/vbox"]
+layout_mode = 2
+tooltip_text = "Do more damage"
+theme_override_constants/separation = 32
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("3_dvejj")
+texture_pressed = ExtResource("3_dvejj")
+texture_hover = ExtResource("3_dvejj")
+texture_disabled = ExtResource("3_dvejj")
+texture_focused = ExtResource("3_dvejj")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 24
+text = "Strength    "
+
+[node name="strengthButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer2"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "craft 
+5 potions + 5 gold"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Potions/MarginContainer/vbox"]
+layout_mode = 2
+tooltip_text = "Boosts speed 
+useful for dodging attacks"
+theme_override_constants/separation = 32
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("3_dvejj")
+texture_pressed = ExtResource("3_dvejj")
+texture_hover = ExtResource("3_dvejj")
+texture_disabled = ExtResource("3_dvejj")
+texture_focused = ExtResource("3_dvejj")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 24
+text = "Speed         "
+
+[node name="speedButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer3"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "craft
+10 potions + 2 gold"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Potions/MarginContainer/vbox"]
+layout_mode = 2
+tooltip_text = "Transform silver sword to gold
+more damage"
+theme_override_constants/separation = 36
+
+[node name="TextureButton" type="TextureButton" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("3_dvejj")
+texture_pressed = ExtResource("3_dvejj")
+texture_hover = ExtResource("3_dvejj")
+texture_disabled = ExtResource("3_dvejj")
+texture_focused = ExtResource("3_dvejj")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 24
+text = "Enchanting                         
+"
+
+[node name="enchantButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer4"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_nyj8m")
+theme_override_font_sizes/font_size = 16
+text = "craft 
+5 Potions + 5 gold + 5 silver"
+
+[connection signal="button_down" from="TabContainer/Resume/VBoxContainer/resume" to="." method="_on_resume_button_down"]
+[connection signal="pressed" from="TabContainer/Resume/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="TabContainer/Resume/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="TabContainer/Potions/MarginContainer/vbox/HBoxContainer/imvisButton" to="." method="_on_imvis_button_pressed"]
+[connection signal="pressed" from="TabContainer/Potions/MarginContainer/vbox/HBoxContainer2/strengthButton" to="." method="_on_strength_button_pressed"]
+[connection signal="pressed" from="TabContainer/Potions/MarginContainer/vbox/HBoxContainer3/speedButton" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="TabContainer/Potions/MarginContainer/vbox/HBoxContainer4/enchantButton" to="." method="_on_enchant_button_pressed"]

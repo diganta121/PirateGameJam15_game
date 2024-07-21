@@ -1,9 +1,9 @@
 extends CharacterBody2D
 const SPEED := 100.0
-@onready var player = get_node("/root/Scene/Player")
+@onready var player := get_node("/root/Scene/Player")
 var player_visible := false
 var direction := Vector2.ZERO
-@export var health = 50
+@export var health := 50
 
 func _ready():
 	velocity = Vector2.ZERO
@@ -35,3 +35,7 @@ func take_damage(damage)-> void:
 	if health <= 0:
 		print('dead')
 		queue_free()
+
+
+func _on_timer_timeout():
+	queue_free()

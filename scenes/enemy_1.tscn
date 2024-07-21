@@ -25,3 +25,9 @@ position = Vector2(0, -2)
 texture = ExtResource("2_n700a")
 
 [node name="Gun" parent="." instance=ExtResource("3_ssmk0")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 300.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
