@@ -5,11 +5,11 @@ var player_visible := false
 var direction := Vector2.ZERO
 @export var health := 50
 
-func _ready():
+func _ready() -> void:
 	velocity = Vector2.ZERO
 	move_and_slide()
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta:float) -> void:
 
 	var distance := global_position.distance_to(player.global_position)
 	if distance < 70:
@@ -30,12 +30,12 @@ func _physics_process(delta) -> void:
 func enemy_id() -> int:
 	return 1
 	
-func take_damage(damage)-> void:
+func take_damage(damage: int)-> void:
 	health -= damage
 	if health <= 0:
 		print('dead')
 		queue_free()
 
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	queue_free()

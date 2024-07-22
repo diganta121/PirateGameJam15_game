@@ -1,9 +1,9 @@
 extends Area2D
-var enable_shoot = false
-var mouse_pos = 0
+var enable_shoot :bool= false
+var mouse_pos :Vector2 = Vector2.ZERO
 var enemies
-var damage = 10
-func _physics_process(delta) -> void:
+var damage := 10
+func _physics_process(_delta :float) -> void:
 	mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
 	if global_rotation_degrees > 90 or global_rotation_degrees < -90:

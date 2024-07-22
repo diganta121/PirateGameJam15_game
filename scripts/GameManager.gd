@@ -3,6 +3,11 @@ extends Node
 @onready var PotTimerLabel = $CanvasLayer/PotionTimerLabel
 @onready var score_label = get_node("CanvasLayer/ScoreLabel")
 
+@onready var current_scene := $"../TestScene"
+@onready var house_scenes := [$"../",$"../"]
+@onready var story_scene := $"../"
+
+
 var elements := {
 	"potions":0,
 	"gold":0,
@@ -18,10 +23,9 @@ var potionlist := {
 
 func add_point(element) -> void:
 	elements[element] +=1
-	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format([elements['potions'],elements["gold"],elements['silver']])
-
-
-
+	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
+		[elements['potions'],elements["gold"],elements['silver']]
+		)
 
 func crafter(potion: String) -> void:
 	if potion == 'invisibility':
@@ -53,3 +57,6 @@ func crafter(potion: String) -> void:
 			$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
 	print(potionlist)
 
+func not_enough_items():
+	%enough.visible = true
+	$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")

@@ -7,7 +7,7 @@ var player
 
 @export var health := 300
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta: float) -> void:
 	if not player:
 		return
 	if move_timer <= 0:
@@ -48,7 +48,7 @@ func _on_attack_range_body_entered(body)-> void:
 func enemy_id() -> int:
 	return 2
 
-func take_damage(damage)-> void:
+func take_damage(damage:int)-> void:
 	health -= damage
 	if health <= 0:
 		print('dead')
@@ -58,8 +58,8 @@ func summon_enemies() -> void:
 	# every 5 sec summon random amount of enemies 
 	# arround the boss 
 	# play summon animation 
-	const ENEMY_1 = preload("res://scenes/enemy_1.tscn")
-	var enemy_char = ENEMY_1.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	const ENEMY_1 := preload("res://scenes/enemy_1.tscn")
+	var enemy_char := ENEMY_1.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	
 	enemy_char.global_position = global_position.normalized()
 	add_child(enemy_char)
