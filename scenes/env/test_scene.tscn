@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://doeupmqpx6swi"]
+[gd_scene load_steps=11 format=3 uid="uid://doeupmqpx6swi"]
 
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="2_hsd3w"]
 [ext_resource type="PackedScene" uid="uid://dw33yjkn827ld" path="res://scenes/ledge.tscn" id="4_80vdp"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dswonmor6mes1" path="res://scenes/gun.tscn" id="6_3fsck"]
 [ext_resource type="PackedScene" uid="uid://b7swo28m1mwdh" path="res://scenes/paths/path1.tscn" id="7_deynb"]
 [ext_resource type="PackedScene" uid="uid://8n4nbql7ovsm" path="res://scenes/paths/pathT.tscn" id="8_4ag5w"]
+[ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/items/potion.tscn" id="8_t8tdq"]
+[ext_resource type="PackedScene" uid="uid://dqy85sfw4vel1" path="res://scenes/items/silver.tscn" id="9_ats8k"]
 [ext_resource type="PackedScene" uid="uid://c3yclwciejcuy" path="res://scenes/paths/pathL.tscn" id="9_mxyh8"]
+[ext_resource type="PackedScene" uid="uid://dkfxvap3ymd24" path="res://scenes/items/gold.tscn" id="10_6rqm2"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -161,3 +164,92 @@ position = Vector2(-709, -0.0022583)
 
 [node name="enemy3" parent="." instance=ExtResource("2_hsd3w")]
 position = Vector2(1010, -269)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="potion" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(172, -158)
+
+[node name="potion2" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(241, -173)
+
+[node name="potion3" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(280, -170)
+
+[node name="potion4" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(265, -302)
+
+[node name="potion5" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(324, -231)
+
+[node name="potion6" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(207, -131)
+
+[node name="potion7" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(568, -235)
+
+[node name="potion8" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(597, -310)
+
+[node name="silver" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-185, 326)
+
+[node name="silver2" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-158, 277)
+
+[node name="silver3" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-310, 359)
+
+[node name="silver4" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-255, 324)
+
+[node name="silver5" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-398, 354)
+
+[node name="silver6" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-351, 312)
+
+[node name="silver7" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-342, 417)
+
+[node name="silver8" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-277, 374)
+
+[node name="gold" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-405, 566)
+
+[node name="gold2" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-387, 543)
+
+[node name="gold3" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-348, 504)
+
+[node name="gold4" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-507, 523)
+
+[node name="gold5" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-436, 478)
+
+[node name="gold6" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-483, 578)
+
+[node name="gold7" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-360, 788)
+
+[node name="gold8" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-541, 763)
+
+[node name="gold9" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-345, 668)
+
+[node name="gold10" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-490, 685)
+
+[node name="silver9" parent="." instance=ExtResource("9_ats8k")]
+position = Vector2(-34, 705)
+
+[node name="potion9" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(-197, 619)
+
+[node name="gold11" parent="." instance=ExtResource("10_6rqm2")]
+position = Vector2(-122, 641)
