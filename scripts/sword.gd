@@ -2,7 +2,7 @@ extends Area2D
 var enable_shoot :bool= false
 var mouse_pos :Vector2 = Vector2.ZERO
 var enemies
-var damage := 10
+@onready var gameManager := get_node("/root/Scene/GameManager")
 func _physics_process(_delta :float) -> void:
 	mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
@@ -19,7 +19,7 @@ func attack() -> void:
 	enemies = get_overlapping_bodies()
 	for body in enemies:
 		if body.has_method("enemy_id"):
-			body.take_damage(10)
+			body.take_damage(gameManager.PLAYER_SWORD_DAMAGE)
 			print("enemied")
 	enemies = get_overlapping_areas()
 	for body in enemies:

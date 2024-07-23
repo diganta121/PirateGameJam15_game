@@ -3,10 +3,13 @@ extends Node
 @onready var PotTimerLabel = $CanvasLayer/PotionTimerLabel
 @onready var score_label = get_node("CanvasLayer/ScoreLabel")
 
-@onready var current_scene := $"../TestScene"
-@onready var house_scenes := [$"../",$"../"]
-@onready var story_scene := $"../"
+@onready var main_scene := "res://scenes/env/test_scene.tscn"
+@onready var house_scenes := ["res://scenes/env/house_inside_1.tscn"]
+@onready var story_scene := $""
 
+@export var PLAYER_SWORD_DAMAGE = 10
+
+var GameState = ""
 
 var elements := {
 	"potions":0,
@@ -32,14 +35,14 @@ func crafter(potion: String) -> void:
 		if elements['potions'] >= 5 and elements['silver'] >= 3:
 			potionlist['invisibility'] += 1
 		else:
-			$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
+			not_enough_items()
 			
 	if potion == 'strength':
 		if elements['potions'] >= 5 and elements['gold'] >= 5:
 			potionlist['strength'] += 1
 			print('Potion crafted')
 		else:
-			$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
+			not_enough_items()
 
 			
 	if potion == 'speed':
@@ -47,16 +50,21 @@ func crafter(potion: String) -> void:
 			potionlist['speed'] += 1
 			print('Potion crafted')
 		else:
-			$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
+			not_enough_items()
 			
 	if potion == 'enchant':
 		if elements['potions'] >= 5 and elements['silver'] >= 5 and elements['gold'] >= 2:
 			potionlist['enchant'] += 1
 			print('Potion crafted')
 		else:
-			$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
+			not_enough_items()
 	print(potionlist)
 
-func not_enough_items():
+func not_enough_items() -> void:
 	%enough.visible = true
 	$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
+
+
+func use_potion():
+	
+	pass
