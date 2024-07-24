@@ -71,6 +71,7 @@ func crafter(potion: String) -> void:
 	
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 func not_enough_items() -> void:
 	%enough.visible = true
 	$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
@@ -80,6 +81,8 @@ func use_potion():
 	
 	pass
 =======
+=======
+>>>>>>> Stashed changes
 func _on_strength_pressed() -> void:
 	if potionlist['strength'] >0:
 		potionlist['strength'] -= 1
@@ -91,4 +94,7 @@ func _on_speed_pressed():
 		potionlist['speed'] -= 1
 		print(potionlist)
 		get_node("/root/Scene/Player").speedplay()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

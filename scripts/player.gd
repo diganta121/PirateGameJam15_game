@@ -3,6 +3,7 @@ var health := 100.0
 var DAMAGE := 5.0
 signal player_dead
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 func _physics_process(delta:float) -> void:
 	var direc = Input.get_vector(
@@ -10,12 +11,17 @@ func _physics_process(delta:float) -> void:
 		)
 	velocity = direc * 650 
 =======
+=======
+>>>>>>> Stashed changes
 var speedVAL := 650
 
 func _physics_process(delta) -> void:
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	
 	velocity = direc * speedVAL 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	move_and_slide()
 	#if velocity.length() > 0.0:
@@ -31,12 +37,15 @@ func _physics_process(delta) -> void:
 func player_id() -> int:
 	return 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 func potion_strength() -> void:
 	
 	pass
 
 =======
+=======
+>>>>>>> Stashed changes
 	
 @onready var bass = $Bass
 @onready var timer = $Timer
@@ -52,4 +61,7 @@ func _on_timer_timeout():
 	bass.play("idle")
 	DAMAGE =5.0
 	speedVAL =650
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
