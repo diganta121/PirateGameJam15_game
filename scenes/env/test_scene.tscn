@@ -191,6 +191,9 @@ position = Vector2(568, -235)
 [node name="potion8" parent="." instance=ExtResource("8_t8tdq")]
 position = Vector2(597, -310)
 
+[node name="potion10" parent="." instance=ExtResource("8_t8tdq")]
+position = Vector2(811, -175)
+
 [node name="silver" parent="." instance=ExtResource("9_ats8k")]
 position = Vector2(-185, 326)
 

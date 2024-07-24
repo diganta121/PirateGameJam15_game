@@ -34,12 +34,16 @@ func crafter(potion: String) -> void:
 	if potion == 'invisibility':
 		if elements['potions'] >= 5 and elements['silver'] >= 3:
 			potionlist['invisibility'] += 1
+			elements['potions'] -=5
+			elements['silver'] -=3
 		else:
 			not_enough_items()
 			
 	if potion == 'strength':
 		if elements['potions'] >= 5 and elements['gold'] >= 5:
 			potionlist['strength'] += 1
+			elements['potions'] -=5
+			elements['gold'] -=5
 			print('Potion crafted')
 		else:
 			not_enough_items()
@@ -49,6 +53,8 @@ func crafter(potion: String) -> void:
 		if elements['potions'] >= 10 and elements['gold'] >= 2:
 			potionlist['speed'] += 1
 			print('Potion crafted')
+			elements['potions'] -=10
+			elements['gold'] -=2
 		else:
 			not_enough_items()
 			
@@ -56,10 +62,15 @@ func crafter(potion: String) -> void:
 		if elements['potions'] >= 5 and elements['silver'] >= 5 and elements['gold'] >= 2:
 			potionlist['enchant'] += 1
 			print('Potion crafted')
+			elements['potions'] -=5
+			elements['gold'] -=2
+			elements['silver'] -=5
 		else:
 			not_enough_items()
 	print(potionlist)
+	
 
+<<<<<<< Updated upstream
 func not_enough_items() -> void:
 	%enough.visible = true
 	$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
@@ -68,3 +79,16 @@ func not_enough_items() -> void:
 func use_potion():
 	
 	pass
+=======
+func _on_strength_pressed() -> void:
+	if potionlist['strength'] >0:
+		potionlist['strength'] -= 1
+		print(potionlist)
+		get_node("/root/Scene/Player").aniplay()
+
+func _on_speed_pressed():
+	if potionlist['speed'] >0:
+		potionlist['speed'] -= 1
+		print(potionlist)
+		get_node("/root/Scene/Player").speedplay()
+>>>>>>> Stashed changes
