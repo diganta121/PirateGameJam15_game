@@ -26,16 +26,15 @@ func _physics_process(_delta:float) -> void:
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	
+
 func enemy_id() -> int:
 	return 1
-	
+
 func take_damage(damage: int)-> void:
 	health -= damage
 	if health <= 0:
 		print('dead')
 		queue_free()
-
 
 func _on_timer_timeout() -> void:
 	queue_free()

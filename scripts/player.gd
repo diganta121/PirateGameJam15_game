@@ -4,7 +4,7 @@ const DAMAGE := 5.0
 signal player_dead
 
 func _physics_process(delta:float) -> void:
-	var direc = Input.get_vector(
+	var direc :Vector2= Input.get_vector(
 		"move_left","move_right","move_up","move_down"
 		)
 	velocity = direc * 650 
