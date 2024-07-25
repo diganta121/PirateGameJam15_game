@@ -8,15 +8,9 @@
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_a1xyp"]
 [ext_resource type="Texture2D" uid="uid://b68h125lrri47" path="res://assets/Icon21.png" id="4_d23ut"]
 [ext_resource type="Texture2D" uid="uid://wsh0p4f0i8pr" path="res://assets/Icon15.png" id="5_hytxh"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://c5xs0w4qxtcw5" path="res://assets/Icon9.png" id="6_un0er"]
 [ext_resource type="Texture2D" uid="uid://b42d6ei70jy2h" path="res://assets/dbox2.png" id="7_qx2cn"]
 [ext_resource type="Texture2D" uid="uid://d28rr6yp7bv7m" path="res://assets/Icon16.png" id="8_ofemp"]
-=======
-[ext_resource type="Texture2D" path="res://assets/Icon9.png" id="6_un0er"]
-[ext_resource type="Texture2D" path="res://assets/dbox2.png" id="7_qx2cn"]
-[ext_resource type="Texture2D" path="res://assets/Icon16.png" id="8_ofemp"]
->>>>>>> Stashed changes
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55l3m"]
 bg_color = Color(0.411765, 0.164706, 0.745098, 0.443137)
