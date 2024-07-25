@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://depguk060dslk"]
+[gd_scene load_steps=21 format=3 uid="uid://depguk060dslk"]
 
 [ext_resource type="PackedScene" uid="uid://doeupmqpx6swi" path="res://scenes/env/test_scene.tscn" id="1_v65mv"]
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_6me2q"]
@@ -72,6 +72,52 @@ _data = {
 "not_enough": SubResource("Animation_643m0")
 }
 
+[sub_resource type="Animation" id="Animation_xswep"]
+resource_name = "item_add"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%add_items:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1176, 488), Vector2(802, 488), Vector2(802, 488), Vector2(1183, 488)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%add_items:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%add_items:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0119232, 1.97597, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cxko"]
+_data = {
+"item_add": SubResource("Animation_xswep")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxr6x"]
 texture = ExtResource("7_qx2cn")
 expand_margin_left = 7.0
@@ -128,9 +174,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -145.0
-offset_top = -5.0
+offset_top = 5.0
 offset_right = 145.0
-offset_bottom = 35.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_f1a5k")
@@ -142,10 +188,38 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="add_items" type="Label" parent="GameManager/CanvasLayer/esc_menu"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 226.0
+offset_top = -160.0
+offset_right = 516.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_f1a5k")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_55l3m")
+text = "items purchaced"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager/CanvasLayer/esc_menu"]
 process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_hrkj1")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="GameManager/CanvasLayer/esc_menu"]
+libraries = {
+"": SubResource("AnimationLibrary_0cxko")
 }
 
 [node name="PotionTimer" type="Timer" parent="GameManager/CanvasLayer"]
@@ -239,5 +313,6 @@ zoom = Vector2(0.9, 0.9)
 
 [node name="sword" parent="Player" instance=ExtResource("3_dqd1r")]
 
+[connection signal="timeout" from="GameManager/CanvasLayer/PotionTimer" to="GameManager" method="_on_potion_timer_timeout"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/speed" to="GameManager" method="_on_speed_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/strength" to="GameManager" method="_on_strength_pressed"]

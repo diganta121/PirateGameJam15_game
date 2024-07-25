@@ -11,7 +11,6 @@ func _physics_process(delta :float) -> void:
 	if travel_dist > RANGE:
 		queue_free()
 
-
 func _on_body_entered(body) -> void:
 	queue_free()
 	if body.has_method("take_damage"):
