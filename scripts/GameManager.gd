@@ -1,15 +1,15 @@
 extends Node
 
 @onready var PotTimerLabel = $CanvasLayer/PotionTimerLabel
-@onready var score_label = get_node("CanvasLayer/ScoreLabel")
+@onready var score_label := get_node("CanvasLayer/ScoreLabel")
 
 @onready var main_scene := "res://scenes/env/test_scene.tscn"
 @onready var house_scenes := ["res://scenes/env/house_inside_1.tscn"]
-@onready var story_scene := $""
+#@onready var story_scene := $""
 
-@export var PLAYER_SWORD_DAMAGE = 10
+@export var PLAYER_SWORD_DAMAGE := 10
 
-var GameState = ""
+var GameState := ""
 
 var elements := {
 	"potions":0,
@@ -67,34 +67,36 @@ func crafter(potion: String) -> void:
 			elements['silver'] -=5
 		else:
 			not_enough_items()
+	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
+		[elements['potions'],elements["gold"],elements['silver']]
+		)
 	print(potionlist)
-	
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 func not_enough_items() -> void:
 	%enough.visible = true
 	$CanvasLayer/esc_menu/AnimationPlayer.play("not_enough")
 
+func add_items() -> void:
+	%enough.visible = true
+	$CanvasLayer/esc_menu/AnimationPlayer2.play("item_add")
+#1:'walk',
+#2:'strength',
+#3:'speed'
 
-func use_potion():
-	
-	pass
-=======
-=======
->>>>>>> Stashed changes
 func _on_strength_pressed() -> void:
 	if potionlist['strength'] >0:
 		potionlist['strength'] -= 1
-		print(potionlist)
-		get_node("/root/Scene/Player").aniplay()
+		get_node("/root/Scene/Player").animationState = 2
 
-func _on_speed_pressed():
+func _on_speed_pressed() -> void:
 	if potionlist['speed'] >0:
 		potionlist['speed'] -= 1
-		print(potionlist)
 		get_node("/root/Scene/Player").speedplay()
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
+func reset_potion_effects():
+	get_node("/root/Scene/Player").animationState = 1
+	get_node("/root/Scene/Player").potion_state = 0
+
+func _on_potion_timer_timeout():
+	if get_node("/root/Scene/Player").potion_countdown >0:
+		get_node("/root/Scene/Player").potion_countdown -= 1

@@ -7,7 +7,7 @@ const BULLET_TYPES := {
 	"bullet2":"res://scenes/bullet2.tscn",
 	"bullet3":"res://scenes/bullet3.tscn"
 }
-@export var bulletType :='bullet3'
+@export var bulletType := 'bullet3'
 var target_pos := Vector2.ZERO
 
 
