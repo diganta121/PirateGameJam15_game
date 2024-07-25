@@ -24,7 +24,7 @@ position = Vector2(-487, -299)
 position = Vector2(-55, 79)
 
 [node name="DarkBoss" parent="." instance=ExtResource("5_ws2vl")]
-position = Vector2(459, 38)
+position = Vector2(736, 266)
 motion_mode = 1
 
 [node name="Gun" parent="DarkBoss" instance=ExtResource("6_3fsck")]

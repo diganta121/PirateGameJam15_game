@@ -10,7 +10,6 @@ func _ready() -> void:
 	move_and_slide()
 
 func _physics_process(_delta:float) -> void:
-
 	var distance := global_position.distance_to(player.global_position)
 	if distance < 70:
 		if randf() < 0.1:

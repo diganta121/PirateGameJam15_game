@@ -1,14 +1,17 @@
 extends CharacterBody2D
 var alive := true
-var health := 10.0
+var health := 10.0 
 var MOB_DAMAGE := 5.0
 signal player_dead
 
 var speedVAL := 650
 const default_speed := 650
+@warning_ignore("untyped_declaration")
 @onready var Sprite = $playerSprite
+@warning_ignore("untyped_declaration")
 @onready var timer = $Timer
 var animationState := 1
+var prevAnimationState := 1 
 var potionState := 0
 const ANIMATION_STATE = {
 	1:'walk',
@@ -16,7 +19,11 @@ const ANIMATION_STATE = {
 	3:'speed'
 }
 
-func _physics_process(delta) -> void:
+func _ready():
+	playAnimation()
+	animationState = 0
+	
+func _physics_process(delta : float) -> void:
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direc * speedVAL 
 
@@ -31,17 +38,19 @@ func _physics_process(delta) -> void:
 	else:
 		if animationState == 1:
 			animationState = 0
-	playAnimation()
 	var over_mobs = %HurtBox.get_overlapping_bodies()
 	if over_mobs.size() > 0 :
 		health -= MOB_DAMAGE * delta
 		if health <= 0.0:
 			player_dead.emit()
+	if animationState != prevAnimationState:
+		playAnimation()
+		prevAnimationState = animationState
 
 func player_id() -> int:
 	return 1
 
-func playAnimation():
+func playAnimation() -> void:
 	if animationState == 1:
 		Sprite.play("walk")
 	elif animationState == 2:
@@ -64,7 +73,17 @@ func speedplay() -> void:
 	potionState = 3
 	speedVAL = 1800
 
+func invisEffect() -> void:
+	#disable colloision shape
+	pass
+
 func _on_timer_timeout() -> void:
 	animationState = 1
-	MOB_DAMAGE =5.0
-	speedVAL =650
+	MOB_DAMAGE = 5.0
+	speedVAL = 650
+
+func take_damage(dmg: int) -> void:
+	health -= dmg
+	if health < 0:
+		player_dead.emit()
+		alive = false

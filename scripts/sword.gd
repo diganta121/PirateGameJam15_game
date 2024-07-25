@@ -3,6 +3,11 @@ var enable_shoot :bool= false
 var mouse_pos :Vector2 = Vector2.ZERO
 var enemies
 @onready var gameManager := get_node("/root/Scene/GameManager")
+const SPRITES = {
+	0:'sword1',
+	1:'enchanted_sword'
+}
+var swordState = 0
 func _physics_process(_delta :float) -> void:
 	mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
@@ -30,3 +35,7 @@ func attack() -> void:
 func _on_timer_timeout() -> void:
 	if enable_shoot:
 		attack()
+
+func enchantEffect()-> void:
+	swordState = 1
+	%sprite.play(SPRITES[swordState])
