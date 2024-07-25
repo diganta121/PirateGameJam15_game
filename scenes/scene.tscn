@@ -102,9 +102,20 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "collect items"
 
+[node name="PotionTimerLabel" type="Label" parent="GameManager/CanvasLayer"]
+offset_left = 857.0
+offset_top = 486.0
+offset_right = 1017.0
+offset_bottom = 541.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 40
+text = "12:22:22"
+
 [node name="esc_menu" parent="GameManager/CanvasLayer" instance=ExtResource("2_32cff")]
 visible = false
-z_index = 2
+top_level = true
 
 [node name="enough" type="Label" parent="GameManager/CanvasLayer/esc_menu"]
 unique_name_in_owner = true
@@ -136,10 +147,6 @@ process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_hrkj1")
 }
-
-[node name="PotionTimerLabel" type="Label" parent="GameManager/CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="PotionTimer" type="Timer" parent="GameManager/CanvasLayer"]
 

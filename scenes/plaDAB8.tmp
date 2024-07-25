@@ -272,8 +272,10 @@ shape = SubResource("RectangleShape2D_d2h07")
 [node name="playerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_8arlv")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
+frame = 5
+frame_progress = 0.101189
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
