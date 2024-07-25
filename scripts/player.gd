@@ -3,6 +3,7 @@ var alive := true
 var health := 10.0
 var MOB_DAMAGE := 5.0
 signal player_dead
+
 var speedVAL := 650
 const default_speed := 650
 @onready var Sprite = $playerSprite
@@ -18,6 +19,7 @@ const ANIMATION_STATE = {
 func _physics_process(delta) -> void:
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direc * speedVAL 
+
 	move_and_slide()
 	if velocity.length() > 0.0:
 		if animationState < 1:
@@ -50,14 +52,14 @@ func playAnimation():
 		Sprite.play("idle")
 
 func strengthplay() -> void:
-	timer.start()
+	timer.start(30)
 	animationState = 2
 	get_node("/root/Scene/GameManager").PLAYER_SWORD_DAMAGE = 15
 	potionState = 2
 	speedVAL = 600
 
 func speedplay() -> void:
-	timer.start()
+	timer.start(30)
 	animationState = 3
 	potionState = 3
 	speedVAL = 1800

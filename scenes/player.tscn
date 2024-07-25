@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b3di5818xbuj1" path="res://assets/Idle.png" id="2_by15x"]
 [ext_resource type="Texture2D" uid="uid://xbwgdjwbjfbj" path="res://assets/Run-export.png" id="3_fsum7"]
 [ext_resource type="Texture2D" uid="uid://ba0kmqes2tth1" path="res://assets/speed.png" id="3_rgyvq"]
+
+
 [ext_resource type="Texture2D" uid="uid://bcxuvgo0jb11c" path="res://assets/run.png" id="5_35soy"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2h07"]
 size = Vector2(26, 48)

@@ -82,6 +82,7 @@ func add_items() -> void:
 #1:'walk',
 #2:'strength',
 #3:'speed'
+
 func _on_strength_pressed() -> void:
 	if potionlist['strength'] >0:
 		potionlist['strength'] -= 1
