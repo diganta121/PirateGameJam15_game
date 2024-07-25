@@ -109,6 +109,7 @@ z_index = 2
 [node name="enough" type="Label" parent="GameManager/CanvasLayer/esc_menu"]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -224,7 +225,7 @@ position = Vector2(342.308, -1521.85)
 
 [node name="Player" parent="." instance=ExtResource("2_6me2q")]
 unique_name_in_owner = true
-position = Vector2(290, -828)
+position = Vector2(208, -899)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.9, 0.9)
