@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 var alive := true
 var health := 10.0 
 var MOB_DAMAGE := 5.0

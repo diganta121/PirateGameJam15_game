@@ -6,16 +6,20 @@
 size = Vector2(323, 160)
 
 [node name="Node2D" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_7n18v")
 
 [node name="door" type="Area2D" parent="."]
+process_mode = 3
 scale = Vector2(0.843089, 1.30173)
 collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+process_mode = 3
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_cmgkf")
 
 [connection signal="area_entered" from="door" to="." method="_on_door_area_entered"]
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]
