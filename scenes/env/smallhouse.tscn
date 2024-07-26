@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chypxv0k8q5it"]
 
-[ext_resource type="Texture2D" uid="uid://c5li4cdwrvtnq" path="res://assets/Dungeon_Tileset.png" id="1_85s4s"]
-[ext_resource type="Texture2D" uid="uid://ck2kelvb07nnx" path="res://assets/Furniture.png" id="2_cod7o"]
+[ext_resource type="Texture2D" uid="uid://bb3wqrmj1ardy" path="res://assets/Dungeon_Tileset.png" id="1_85s4s"]
+[ext_resource type="Texture2D" uid="uid://buynsi8s1chow" path="res://assets/Furniture.png" id="2_cod7o"]
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="3_6f6mf"]
 [ext_resource type="PackedScene" uid="uid://cygmx60m4qix1" path="res://scenes/env/door2d.tscn" id="4_feuyr"]
 
