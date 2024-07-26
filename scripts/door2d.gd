@@ -10,7 +10,7 @@ func _on_door_area_entered(area):
 	print(typeof(bodies))
 	for i in bodies:
 		if i.has_method("player_id"):
-			print(4)
+			print("player detected")
 			body_entered = true
 
 
@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if body_entered:
 		print(1)
 		if Input.is_action_just_pressed("use_door"):
-			print(2)
+			print("check door input")
 			if go_to == 'castle':
 				get_tree().change_scene_to_file("res://scenes/env/castle.tscn")
 			if go_to == 'house':
