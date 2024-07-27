@@ -1,7 +1,9 @@
 extends CharacterBody2D
 const SPEED := 100.0
 @onready var player := get_node("/root/Scene/Player")
-var player_visible := false
+@onready var GameManager = get_node("/root/Scene/GameManager")
+var player_visible := true
+var disable_ai := false
 var direction := Vector2.ZERO
 @export var health := 50
 
@@ -10,11 +12,21 @@ func _ready() -> void:
 	move_and_slide()
 
 func _physics_process(_delta:float) -> void:
-	var distance := global_position.distance_to(player.global_position)
+	if disable_ai :
+		disable_ai = GameManager.disable_ai
+		return
+	var distance := 75
+	if player_visible:
+		direction = global_position.direction_to(player.global_position)
+		distance = global_position.distance_to(player.global_position)
+	elif  randf() < 0.06:
+		player_visible = GameManager.PLAYER_VISIBLE
+		distance = 75
+
 	if distance < 70:
 		if randf() < 0.1:
 			direction = -direction
-	if distance < 150:
+	elif distance < 150:
 		if randf() < 0.1:
 			direction = Vector2.RIGHT.rotated(randf_range(0,360))
 	elif distance > 600:

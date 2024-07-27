@@ -87,3 +87,5 @@ func take_damage(dmg: int) -> void:
 	if health < 0:
 		player_dead.emit()
 		alive = false
+
+

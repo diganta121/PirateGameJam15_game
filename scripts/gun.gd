@@ -1,7 +1,6 @@
 extends Area2D
 var enable_shoot :bool= false
-
-
+var player_visible := false
 const BULLET_TYPES := {
 	"bullet1":"res://scenes/bullet.tscn",
 	"bullet2":"res://scenes/bullet2.tscn",
@@ -12,8 +11,11 @@ var target_pos := Vector2.ZERO
 
 
 func _physics_process(_delta :float) -> void:
+	if player_visible:
+		player_visible = GameManager.PLAYER_VISIBLE
+		return
 	var enemies = get_overlapping_bodies()
-	if enemies.size() > 0 :
+	if enemies.size() > 0 or not player_visible:
 		for i in enemies:
 			if i.has_method('player_id'):
 				enable_shoot = true
@@ -24,6 +26,7 @@ func _physics_process(_delta :float) -> void:
 		enable_shoot = false
 
 func shoot() -> void:
+	player_visible = GameManager.PLAYER_VISIBLE
 	const BULLET = preload("res://scenes/bullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position = %ShootingPoint.global_position

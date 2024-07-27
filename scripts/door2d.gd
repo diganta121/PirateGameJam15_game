@@ -14,7 +14,6 @@ func _on_door_area_entered(area):
 			body_entered = true
 
 
-
 func _physics_process(delta):
 	if body_entered:
 		print(1)
