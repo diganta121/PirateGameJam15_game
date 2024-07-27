@@ -1,41 +1,61 @@
 extends Area2D
-var enable_shoot :bool= false
-var mouse_pos :Vector2 = Vector2.ZERO
+
+var enable_shoot : bool = false
+var mouse_pos : Vector2 = Vector2.ZERO
 var enemies
 @onready var gameManager := get_node("/root/Scene/GameManager")
-const SPRITES = {
-	0:'sword1',
-	1:'enchanted_sword'
+@onready var attack_cooldown_timer := $AttackCooldownTimer
+
+const SPRITES := {
+	0: 'sword1',
+	1: 'enchanted_sword'
 }
-var swordState = 0
-func _physics_process(_delta :float) -> void:
-	mouse_pos = get_global_mouse_position()
-	look_at(mouse_pos)
+var swordState := 0
+var is_on_cooldown : bool = false
+var flipped := false
+
+func _ready() -> void:
+	# Initialize the Timer
+	attack_cooldown_timer.wait_time = 0.44 # Set cooldown duration to 1 second
+	attack_cooldown_timer.one_shot = true
+	look_at(Vector2.RIGHT)
+	
+func _physics_process(_delta: float) -> void:
 	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
 		%sprite.flip_h = true
-	else :
+		flipped = true
+	else:
 		%sprite.flip_h = false
-
+		flipped = false
+		
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and not is_on_cooldown:
 		attack()
 
 func attack() -> void:
+	if is_on_cooldown:
+		return
+	if not flipped:
+		$AnimationPlayer.play("swing_sword")
 	enemies = get_overlapping_bodies()
 	for body in enemies:
 		if body.has_method("enemy_id"):
 			body.take_damage(gameManager.PLAYER_SWORD_DAMAGE)
-			print("enemied")
+			print("enemy attacked")
+
 	enemies = get_overlapping_areas()
 	for body in enemies:
 		if body.has_method("bullet_id"):
 			body.block_bullet()
-			print('bulleted')
+			print('bullet blocked')
+	
+	# Start cooldown timer
+	is_on_cooldown = true
+	attack_cooldown_timer.start()
 
-func _on_timer_timeout() -> void:
-	if enable_shoot:
-		attack()
-
-func enchantEffect()-> void:
+func enchantEffect() -> void:
 	swordState = 1
 	%sprite.play(SPRITES[swordState])
+
+func _on_timer_timeout():
+	is_on_cooldown = false

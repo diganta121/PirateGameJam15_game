@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://depguk060dslk"]
+[gd_scene load_steps=22 format=3 uid="uid://depguk060dslk"]
 
 [ext_resource type="PackedScene" uid="uid://doeupmqpx6swi" path="res://scenes/env/test_scene.tscn" id="1_v65mv"]
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_6me2q"]
@@ -113,9 +113,25 @@ tracks/2/keys = {
 "values": [false, true, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_u84ic"]
+resource_name = "timer fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%PotionTimerLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.307786),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0cxko"]
 _data = {
-"item_add": SubResource("Animation_xswep")
+"item_add": SubResource("Animation_xswep"),
+"timer fade": SubResource("Animation_u84ic")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxr6x"]
@@ -149,6 +165,7 @@ offset_bottom = 23.0
 text = "collect items"
 
 [node name="PotionTimerLabel" type="Label" parent="GameManager/CanvasLayer"]
+unique_name_in_owner = true
 offset_left = 857.0
 offset_top = 486.0
 offset_right = 1017.0
@@ -166,7 +183,6 @@ top_level = true
 [node name="enough" type="Label" parent="GameManager/CanvasLayer/esc_menu"]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -174,9 +190,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -145.0
-offset_top = 5.0
+offset_top = -5.0
 offset_right = 145.0
-offset_bottom = 45.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_f1a5k")
@@ -198,9 +214,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 226.0
+offset_left = 607.0
 offset_top = -160.0
-offset_right = 516.0
+offset_right = 897.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -210,6 +226,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_55l3m")
 text = "items purchaced"
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager/CanvasLayer/esc_menu"]
 process_mode = 3
@@ -314,5 +332,7 @@ zoom = Vector2(0.9, 0.9)
 [node name="sword" parent="Player" instance=ExtResource("3_dqd1r")]
 
 [connection signal="timeout" from="GameManager/CanvasLayer/PotionTimer" to="GameManager" method="_on_potion_timer_timeout"]
+[connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/enchant" to="GameManager" method="_on_enchant_pressed"]
+[connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/invis" to="GameManager" method="_on_invis_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/speed" to="GameManager" method="_on_speed_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/strength" to="GameManager" method="_on_strength_pressed"]

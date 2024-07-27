@@ -9,7 +9,6 @@ func _on_door_body_entered(body):
 func _on_door_body_exited(body):
 	entered = false
 
-
 func _physics_process(delta):
 	if entered == true:
 		print(1)
