@@ -1777,23 +1777,48 @@ go_to = "small_house"
 [node name="Player" parent="." instance=ExtResource("3_y8vwa")]
 position = Vector2(1099, 585)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="borders"]
 position = Vector2(368, 209)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D"]
 position = Vector2(-11, -28)
 shape = SubResource("RectangleShape2D_eur4f")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="borders"]
 position = Vector2(820, 231)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D2"]
 position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_m3ij8")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="borders"]
 position = Vector2(1170, 20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D3"]
+position = Vector2(8, 316)
+shape = SubResource("RectangleShape2D_o1dyt")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="borders"]
+position = Vector2(-31, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D4"]
+position = Vector2(8, 316)
+shape = SubResource("RectangleShape2D_o1dyt")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="borders"]
+position = Vector2(391, 663)
+scale = Vector2(23.9285, 0.206994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D5"]
+position = Vector2(8, 316)
+shape = SubResource("RectangleShape2D_o1dyt")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="borders"]
+position = Vector2(391, -149)
+scale = Vector2(23.9285, 0.206994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D6"]
 position = Vector2(8, 316)
 shape = SubResource("RectangleShape2D_o1dyt")
