@@ -58,7 +58,6 @@ func crafter(potion: String) -> void:
 		else:
 			not_enough_items()
 
-			
 	if potion == 'speed':
 		if elements['potions'] >= 10 and elements['gold'] >= 2:
 			potionlist['speed'] += 1
