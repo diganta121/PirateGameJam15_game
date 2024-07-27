@@ -3,6 +3,7 @@ class_name Player
 var alive := true
 var health := 10.0 
 var MOB_DAMAGE := 5.0
+@export var scene_name := ''
 signal player_dead
 
 var speedVAL :int= 650
@@ -24,6 +25,7 @@ func _ready():
 	animationState = 0
 	
 func _physics_process(delta : float) -> void:
+	
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direc * speedVAL 
 
@@ -87,5 +89,22 @@ func take_damage(dmg: int) -> void:
 	if health < 0:
 		player_dead.emit()
 		alive = false
+<<<<<<< Updated upstream
 
+=======
+		
+#dialog system
+const lines: Array[String] = [
+	"Marco: Hey, you seem pretty strong!",
+	"Asta: Wanna spar?",
+	"Luffy: Wait...",
+	"Naruto: I shouldn't waste my energy before an important battle."
+	]
+var ran =false
+func _unhandled_input(event):
+	if event.is_action_pressed("advance_dialog") and scene_name == 'dscene' and ran == false:
+		DialogManager.start_dialog(global_position, lines)
+		ran=true
+#dialog system
+>>>>>>> Stashed changes
 
