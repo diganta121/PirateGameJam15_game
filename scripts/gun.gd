@@ -11,7 +11,7 @@ var target_pos := Vector2.ZERO
 
 
 func _physics_process(_delta :float) -> void:
-	if player_visible:
+	if not player_visible:
 		player_visible = GameManager.PLAYER_VISIBLE
 		return
 	var enemies = get_overlapping_bodies()
