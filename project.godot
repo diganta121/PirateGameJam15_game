@@ -72,6 +72,7 @@ use_door={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="player"
 2d_physics/layer_4="boss"
+2d_physics/layer_8="door"
 
 [rendering]
 
