@@ -19,6 +19,7 @@ func _physics_process(_delta:float) -> void:
 	if player_visible:
 		direction = global_position.direction_to(player.global_position)
 		distance = global_position.distance_to(player.global_position)
+		player_visible = GameManager.PLAYER_VISIBLE
 	elif  randf() < 0.06:
 		player_visible = GameManager.PLAYER_VISIBLE
 		distance = 75

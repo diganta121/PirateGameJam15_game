@@ -13,20 +13,21 @@ const SPRITES := {
 var swordState := 0
 var is_on_cooldown : bool = false
 var flipped := false
+
 func _ready() -> void:
 	# Initialize the Timer
 	attack_cooldown_timer.wait_time = 0.44 # Set cooldown duration to 1 second
 	attack_cooldown_timer.one_shot = true
-
+	look_at(Vector2.RIGHT)
+	
 func _physics_process(_delta: float) -> void:
-	mouse_pos = get_global_mouse_position()
-	look_at(mouse_pos)
 	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
 		%sprite.flip_h = true
 		flipped = true
 	else:
 		%sprite.flip_h = false
 		flipped = false
+		
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("attack") and not is_on_cooldown:
 		attack()

@@ -5,16 +5,15 @@ var health := 10.0
 var MOB_DAMAGE := 5.0
 signal player_dead
 
-var speedVAL := 650
-const default_speed := 650
+var speedVAL :int= 650
+const default_speed :int= 650
 @warning_ignore("untyped_declaration")
 @onready var Sprite = $playerSprite
 @warning_ignore("untyped_declaration")
 @onready var timer = $Timer
-var animationState := 1
-var prevAnimationState := 1 
-var potionState := 0
-const ANIMATION_STATE = {
+var animationState :int= 1
+var prevAnimationState :int= 1 
+const ANIMATION_STATE := {
 	1:'walk',
 	2:'strength',
 	3:'speed'
@@ -39,11 +38,13 @@ func _physics_process(delta : float) -> void:
 	else:
 		if animationState == 1:
 			animationState = 0
+			
 	var over_mobs = %HurtBox.get_overlapping_bodies()
 	if over_mobs.size() > 0 :
 		health -= MOB_DAMAGE * delta
 		if health <= 0.0:
 			player_dead.emit()
+			print("player dead")
 	if animationState != prevAnimationState:
 		playAnimation()
 		prevAnimationState = animationState
@@ -65,13 +66,11 @@ func strengthplay() -> void:
 	timer.start(30)
 	animationState = 2
 	get_node("/root/Scene/GameManager").PLAYER_SWORD_DAMAGE = 15
-	potionState = 2
 	speedVAL = 600
 
 func speedplay() -> void:
 	timer.start(30)
 	animationState = 3
-	potionState = 3
 	speedVAL = 1800
 
 func invisEffect() -> void:

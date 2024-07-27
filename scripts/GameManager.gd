@@ -16,7 +16,6 @@ var potion_seconds := 30
 var potion_timer := 30
 
 var enemies
-
 var GameState := ""
 
 var elements := {
@@ -49,7 +48,6 @@ func crafter(potion: String) -> void:
 			add_items()
 		else:
 			not_enough_items()
-			
 	if potion == 'strength':
 		if elements['potions'] >= 5 and elements['gold'] >= 5:
 			potionlist['strength'] += 1
@@ -84,7 +82,14 @@ func crafter(potion: String) -> void:
 	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
 		[elements['potions'],elements["gold"],elements['silver']]
 		)
+	update_potion_amount()
 	print(potionlist)
+	
+func update_potion_amount() -> void:
+	$CanvasLayer/GridContainer/enchant.text =  "enchant" + str(potionlist['enchant'])
+	$CanvasLayer/GridContainer/invis.text =  "invisibility" + str(potionlist['invisibility'])
+	$CanvasLayer/GridContainer/speed.text =  "speed" + str(potionlist['speed'])
+	$CanvasLayer/GridContainer/strength.text =  "strength" + str(potionlist['strength'])
 
 func not_enough_items() -> void:
 	%enough.visible = true
@@ -101,32 +106,54 @@ func _on_strength_pressed() -> void:
 	if potionlist['strength'] >0:
 		potionlist['strength'] -= 1
 		player.animationState = 2
+		start_potion_timer()
+	update_potion_amount()
 
 func _on_speed_pressed() -> void:
 	if potionlist['speed'] >0:
 		potionlist['speed'] -= 1
 		player.speedplay()
-
-func _on_invis_pressed():
-	PLAYER_VISIBLE = false
+		start_potion_timer()
+	update_potion_amount()
 	
-	pass # Replace with function body.
+func _on_invis_pressed() -> void:
+	if potionlist['invisibility'] >0:
+		potionlist['invisibility'] -= 1
+		PLAYER_VISIBLE = false
+		start_potion_timer()
+	update_potion_amount()
 
-func _on_enchant_pressed():
-	pass # Replace with function body.
+func _on_enchant_pressed() -> void:
+	if potionlist['enchant'] >0:
+		potionlist['enchant'] -= 1
+		sword.swordState = 1
+		sword.enchantEffect()
+		start_potion_timer()
+	update_potion_amount()
 
-func reset_potion_effects():
+func reset_potion_effects() -> void:
 	player.animationState = 1
-	player.potion_state = 0
 	PLAYER_SWORD_DAMAGE = 10
 	player.speedval = 650
 	player.MOB_DAMAGE = 5.0
 	PLAYER_VISIBLE = true
 	sword.swordState = 0
+	update_potion_amount()
+
+func start_potion_timer() -> void:
+	potion_timer = potion_seconds
+	$CanvasLayer/PotionTimer.start(1)
+
+func _on_potion_timer_timeout() -> void:
+	if potion_timer >0:
+		potion_timer -= 1
+		%PotionTimerLabel.text = "0:" + str(potion_timer)
+		$CanvasLayer/PotionTimer.start(1)
+		$CanvasLayer/PotionTimer.visible = true
+	else:
+		$CanvasLayer/esc_menu/AnimationPlayer2.play("timer fade")
+		reset_potion_effects()
+		$CanvasLayer/PotionTimer.visible = false
+	update_potion_amount()
 	
-
-func _on_potion_timer_timeout():
-	if player.potion_countdown >0:
-		player.potion_countdown -= 1
-
 
