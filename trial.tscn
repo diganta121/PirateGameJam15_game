@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://6e0j4ejm0n8j"]
+
+[ext_resource type="PackedScene" uid="uid://c3o0j6w06tsfw" path="res://scenes/env/tester.tscn" id="1_ydmk1"]
+[ext_resource type="PackedScene" uid="uid://ddpojguqihqfc" path="res://scenes/env/house_inside_1.tscn" id="2_qp7ou"]
+[ext_resource type="PackedScene" uid="uid://chypxv0k8q5it" path="res://scenes/env/smallhouse.tscn" id="3_lcj6p"]
+[ext_resource type="PackedScene" uid="uid://bowtmopoqfbjy" path="res://scenes/env/castle.tscn" id="4_kfd2t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="tester" parent="." instance=ExtResource("1_ydmk1")]
+
+[node name="House_inside1" parent="." instance=ExtResource("2_qp7ou")]
+visible = false
+scale = Vector2(1.64878, 1.64878)
+
+[node name="smallhouse" parent="." instance=ExtResource("3_lcj6p")]
+visible = false
+
+[node name="castle" parent="." instance=ExtResource("4_kfd2t")]
+visible = false
