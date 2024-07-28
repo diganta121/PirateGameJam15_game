@@ -25,6 +25,7 @@ position = Vector2(0, -2)
 texture = ExtResource("2_n700a")
 
 [node name="Gun" parent="." instance=ExtResource("3_ssmk0")]
+bulletType = "bullet1"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 300.0

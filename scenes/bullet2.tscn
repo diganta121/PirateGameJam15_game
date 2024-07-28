@@ -12,8 +12,7 @@ position = Vector2(1, 0)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_qioit")
-DAMAGE = 30
-SPEED = 500
+SPEED = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bb72f")

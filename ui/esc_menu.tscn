@@ -42,11 +42,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_selected_color = Color(0.647059, 0.356863, 0.956863, 1)
 theme_override_constants/side_margin = 1
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 35
 
 [node name="Resume" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_font_sizes/font_size = 40
 
 [node name="gpaused" type="Label" parent="TabContainer/Resume"]
 layout_mode = 1
@@ -130,6 +131,7 @@ text = "Quit"
 visible = false
 layout_mode = 2
 mouse_filter = 1
+theme_override_font_sizes/font_size = 40
 
 [node name="Potionlabel" type="Label" parent="TabContainer/Potions"]
 layout_mode = 1
@@ -261,7 +263,7 @@ stretch_mode = 4
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nyj8m")
 theme_override_font_sizes/font_size = 24
-text = "Speed         "
+text = "Speed        "
 
 [node name="speedButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer3"]
 process_mode = 3
@@ -291,8 +293,7 @@ stretch_mode = 4
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nyj8m")
 theme_override_font_sizes/font_size = 24
-text = "Enchanting                         
-"
+text = "healing     "
 
 [node name="enchantButton" type="Button" parent="TabContainer/Potions/MarginContainer/vbox/HBoxContainer4"]
 process_mode = 3
@@ -301,7 +302,7 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_nyj8m")
 theme_override_font_sizes/font_size = 16
 text = "craft 
-5 Potions + 5 gold + 5 silver"
+5 Potions + 4 silver"
 
 [connection signal="button_down" from="TabContainer/Resume/VBoxContainer/resume" to="." method="_on_resume_button_down"]
 [connection signal="pressed" from="TabContainer/Resume/VBoxContainer/resume" to="." method="_on_resume_pressed"]

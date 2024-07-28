@@ -1,7 +1,7 @@
 extends Area2D
 
 var travel_dist := 0.0
-@export var DAMAGE := 10
+@export var DAMAGE := 4
 @export var RANGE := 1200
 @export var SPEED := 1100
 func _physics_process(delta :float) -> void:
@@ -22,7 +22,7 @@ func bullet_id() -> int:
 func block_bullet() -> void:
 	print("blocked")
 	var c :float= randf()
-	if c <0.5:
+	if c <0.95:
 		SPEED *= -1
 	else:
 		queue_free()

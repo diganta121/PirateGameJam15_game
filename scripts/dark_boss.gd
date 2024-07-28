@@ -5,7 +5,7 @@ var direction := Vector2.ZERO
 var move_timer := 0
 var player
 
-@export var health := 300
+@export var health := 350
 
 func _physics_process(_delta: float) -> void:
 	if not player:
@@ -65,6 +65,6 @@ func summon_enemies() -> void:
 	add_child(enemy_char)
 
 func _on_timer_timeout() -> void:
-	var num := randi_range(2,9)
+	var num := randi_range(1,5)
 	for i in range(num):
 		summon_enemies()

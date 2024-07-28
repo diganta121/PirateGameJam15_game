@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 var alive := true
-var health := 10.0 
+var health := 100.0 
 var MOB_DAMAGE := 5.0
 signal player_dead
 
@@ -79,13 +79,30 @@ func invisEffect() -> void:
 
 func _on_timer_timeout() -> void:
 	animationState = 1
-	MOB_DAMAGE = 5.0
+	MOB_DAMAGE = 1.0
 	speedVAL = 650
 
 func take_damage(dmg: int) -> void:
 	health -= dmg
 	if health < 0:
+		health = 0
 		player_dead.emit()
 		alive = false
+	$healthBar.value = health
 
+func reset_potions() -> void:
+	animationState = 1
+	MOB_DAMAGE = 5.0
 
+func add_health() -> void:
+	if alive:
+		print("healing")
+		if health < 20:
+			health += 70.0
+		elif health < 50:
+			health +=40.0
+		elif health < 70:
+			health += 20.0
+		else:
+			health = 100.0
+		$healthBar.value = health

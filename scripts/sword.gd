@@ -11,16 +11,19 @@ const SPRITES := {
 	1: 'enchanted_sword'
 }
 var swordState := 0
+var prevSwordState := 0
 var is_on_cooldown : bool = false
 var flipped := false
 
 func _ready() -> void:
 	# Initialize the Timer
-	attack_cooldown_timer.wait_time = 0.44 # Set cooldown duration to 1 second
+	attack_cooldown_timer.wait_time = 0.2 # Set cooldown duration to 1 second
 	attack_cooldown_timer.one_shot = true
-	look_at(Vector2.RIGHT)
+
 	
 func _physics_process(_delta: float) -> void:
+	if swordState != prevSwordState:
+		%sprite.play(SPRITES[swordState])
 	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
 		%sprite.flip_h = true
 		flipped = true
@@ -42,7 +45,7 @@ func attack() -> void:
 		if body.has_method("enemy_id"):
 			body.take_damage(gameManager.PLAYER_SWORD_DAMAGE)
 			print("enemy attacked")
-
+	
 	enemies = get_overlapping_areas()
 	for body in enemies:
 		if body.has_method("bullet_id"):
@@ -51,11 +54,15 @@ func attack() -> void:
 	
 	# Start cooldown timer
 	is_on_cooldown = true
-	attack_cooldown_timer.start()
+	attack_cooldown_timer.start(0.2)
 
 func enchantEffect() -> void:
 	swordState = 1
 	%sprite.play(SPRITES[swordState])
+	
+func reset_potions() -> void:
+	swordState = 0
+	%sprite.play("sword1")
 
 func _on_timer_timeout():
 	is_on_cooldown = false

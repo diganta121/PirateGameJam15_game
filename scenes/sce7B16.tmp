@@ -120,26 +120,12 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("%PotionTimerLabel:self_modulate")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 0.307786),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%PotionTimerLabel")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hide"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0cxko"]
@@ -180,7 +166,6 @@ text = "collect items"
 
 [node name="PotionTimerLabel" type="Label" parent="GameManager/CanvasLayer"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0)
 offset_left = 857.0
 offset_top = 486.0
 offset_right = 1017.0
@@ -197,6 +182,7 @@ top_level = true
 [node name="enough" type="Label" parent="GameManager/CanvasLayer/esc_menu"]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -228,9 +214,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 600.0
+offset_left = 607.0
 offset_top = -160.0
-offset_right = 890.0
+offset_right = 897.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0

@@ -10,10 +10,10 @@ extends Node
 @onready var player := get_node("/root/Scene/Player")
 @onready var sword := get_node("/root/Scene/Player/sword")
 
-@export var PLAYER_SWORD_DAMAGE := 10
-@export var PLAYER_VISIBLE := true
-var potion_seconds := 30
-var potion_timer := 30
+@export var PLAYER_SWORD_DAMAGE :int= 20
+@export var PLAYER_VISIBLE :bool= true
+var potion_seconds :int= 30
+var potion_timer :int= 30
 
 var enemies
 var GameState := ""
@@ -33,7 +33,7 @@ var potionlist := {
 	
 var disable_ai := false
 
-func add_point(element) -> void:
+func add_point(element:String) -> void:
 	elements[element] +=1
 	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
 		[elements['potions'],elements["gold"],elements['silver']]
@@ -73,8 +73,7 @@ func crafter(potion: String) -> void:
 			potionlist['enchant'] += 1
 			print('Potion crafted')
 			elements['potions'] -=5
-			elements['gold'] -=2
-			elements['silver'] -=5
+			elements['silver'] -=4
 			add_items()
 		else:
 			not_enough_items()
@@ -85,10 +84,10 @@ func crafter(potion: String) -> void:
 	print(potionlist)
 	
 func update_potion_amount() -> void:
-	$CanvasLayer/GridContainer/enchant.text =  "enchant" + str(potionlist['enchant'])
-	$CanvasLayer/GridContainer/invis.text =  "invisibility" + str(potionlist['invisibility'])
-	$CanvasLayer/GridContainer/speed.text =  "speed" + str(potionlist['speed'])
-	$CanvasLayer/GridContainer/strength.text =  "strength" + str(potionlist['strength'])
+	$CanvasLayer/GridContainer/enchant.text =  "healing " + str(potionlist['enchant'])
+	$CanvasLayer/GridContainer/invis.text =  "invisibility " + str(potionlist['invisibility'])
+	$CanvasLayer/GridContainer/speed.text =  "speed " + str(potionlist['speed'])
+	$CanvasLayer/GridContainer/strength.text =  "strength " + str(potionlist['strength'])
 
 func not_enough_items() -> void:
 	%enough.visible = true
@@ -105,6 +104,7 @@ func _on_strength_pressed() -> void:
 	if potionlist['strength'] >0:
 		potionlist['strength'] -= 1
 		player.animationState = 2
+		PLAYER_SWORD_DAMAGE = 35
 		start_potion_timer()
 	update_potion_amount()
 
@@ -125,18 +125,14 @@ func _on_invis_pressed() -> void:
 func _on_enchant_pressed() -> void:
 	if potionlist['enchant'] >0:
 		potionlist['enchant'] -= 1
-		sword.swordState = 1
-		sword.enchantEffect()
-		start_potion_timer()
+		player.add_health()
 	update_potion_amount()
 
 func reset_potion_effects() -> void:
-	player.animationState = 1
-	PLAYER_SWORD_DAMAGE = 10
-	player.speedval = 650
-	player.MOB_DAMAGE = 5.0
+	PLAYER_SWORD_DAMAGE = 20
 	PLAYER_VISIBLE = true
-	sword.swordState = 0
+	player.reset_potions()
+	sword.reset_potions()
 	update_potion_amount()
 
 func start_potion_timer() -> void:
@@ -148,11 +144,11 @@ func _on_potion_timer_timeout() -> void:
 		potion_timer -= 1
 		%PotionTimerLabel.text = "0:" + str(potion_timer)
 		$CanvasLayer/PotionTimer.start(1)
-		$CanvasLayer/PotionTimer.visible = true
+
 	else:
 		$CanvasLayer/esc_menu/AnimationPlayer2.play("timer fade")
 		reset_potion_effects()
-		$CanvasLayer/PotionTimer.visible = false
+
 	update_potion_amount()
 	
 
