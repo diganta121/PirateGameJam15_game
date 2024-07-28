@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ghkd0jp7xmqe"]
+[gd_scene load_steps=43 format=3 uid="uid://ghkd0jp7xmqe"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_i5qu5"]
 [ext_resource type="Texture2D" uid="uid://b3di5818xbuj1" path="res://assets/Idle.png" id="2_by15x"]
@@ -259,6 +259,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7duux"]
 radius = 23.3452
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcsbs"]
+bg_color = Color(0.278431, 0.227451, 0.227451, 0.796078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbn6c"]
+bg_color = Color(3.36915e-07, 0.717036, 0.384309, 1)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 6
@@ -288,10 +294,13 @@ wait_time = 30.0
 one_shot = true
 
 [node name="healthBar" type="ProgressBar" parent="."]
-offset_left = -29.5764
-offset_top = -25.8794
-offset_right = 34.4236
-offset_bottom = -20.8794
+offset_left = -30.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -21.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hcsbs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hbn6c")
+value = 100.0
 show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
