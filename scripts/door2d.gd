@@ -1,31 +1,7 @@
-extends Node2D
-@export var go_to := ''
-var entered = false
-@onready var door = $door
+class_name door extends Area2D
+@export var connected_scene: String
 
-func _on_door_body_entered(body):
-	entered = true
-
-func _on_door_body_exited(body):
-	entered = false
-
-func _physics_process(delta):
-	if entered == true:
-		print(1)
-		if Input.is_action_just_pressed("use_door"):
-			print("check door input")
-			if go_to == 'castle':
-				get_tree().change_scene_to_file("res://scenes/env/castle.tscn")
-			if go_to == 'house':
-				get_tree().change_scene_to_file("res://scenes/env/house_inside_1.tscn")
-			if go_to == 'small_house':
-				get_tree().change_scene_to_file("res://scenes/env/smallhouse.tscn")
-			if go_to == 'outside':
-				get_tree().change_scene_to_file("res://scenes/env/tester.tscn")
-
-
-
-
-
-
+func _on_body_entered(body):
+	if body is Player:
+		scene_manager.change_scene(get_owner(),connected_scene)
 

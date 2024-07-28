@@ -1,25 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cygmx60m4qix1"]
+[gd_scene load_steps=2 format=3 uid="uid://cygmx60m4qix1"]
 
 [ext_resource type="Script" path="res://scripts/door2d.gd" id="1_7n18v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmgkf"]
-size = Vector2(323, 160)
-
-[node name="Node2D" type="Node2D"]
-process_mode = 3
-script = ExtResource("1_7n18v")
-
-[node name="door" type="Area2D" parent="."]
+[node name="door" type="Area2D"]
 process_mode = 3
 scale = Vector2(0.843089, 1.30173)
-collision_layer = 7
-collision_mask = 7
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_7n18v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
-process_mode = 3
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_cmgkf")
-
-[connection signal="area_entered" from="door" to="." method="_on_door_area_entered"]
-[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
-[connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

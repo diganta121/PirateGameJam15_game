@@ -1,5 +1,5 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
+
 var alive := true
 var health := 100.0 
 var MOB_DAMAGE := 5.0
