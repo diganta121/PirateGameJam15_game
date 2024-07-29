@@ -5092,3 +5092,10 @@ position = Vector2(433, 580)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D12"]
 position = Vector2(25.5, 40.5)
 shape = SubResource("RectangleShape2D_dtn4b")
+<<<<<<< Updated upstream
+=======
+
+[node name="door" parent="." instance=ExtResource("4_feuyr")]
+position = Vector2(1128, 466)
+go_to = "outside"
+>>>>>>> Stashed changes
