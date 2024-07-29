@@ -15,6 +15,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("use_door"):
 			print("check door input")
 			if go_to == 'castle':
+<<<<<<< Updated upstream
 				get_tree().change_scene_to_file("res://scenes/env/castle.tscn")
 			if go_to == 'house':
 				get_tree().change_scene_to_file("res://scenes/env/house_inside_1.tscn")
@@ -22,6 +23,19 @@ func _physics_process(delta):
 				get_tree().change_scene_to_file("res://scenes/env/smallhouse.tscn")
 			if go_to == 'outside':
 				get_tree().change_scene_to_file("res://scenes/env/tester.tscn")
+=======
+				print('cas')
+				get_tree().change_scene_to_file("res://scenes/env/castle.tscn")
+			elif go_to == 'house':
+				get_tree().change_scene_to_file("res://scenes/env/house_inside_1.tscn")
+			elif go_to == 'small':
+				print('smallll')
+				get_tree().change_scene_to_file("res://scenes/env/smallhouse.tscn")
+			elif go_to == 'outside':
+				get_tree().change_scene_to_file("res://scenes/env/tester.tscn")
+			elif go_to == 'play':
+				get_tree().change_scene_to_file("res://scenes/scene.tscn")
+>>>>>>> Stashed changes
 
 
 

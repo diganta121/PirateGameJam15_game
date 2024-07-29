@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpnqhtocvgwyp"]
+
+[ext_resource type="VideoStream" path="res://assets/intro.ogv" id="1_3b1gb"]
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_j47x6"]
+
+[node name="intro" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j47x6")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 2
+tooltip_text = "Press Space Bar to skip"
+stream = ExtResource("1_3b1gb")
+volume_db = 24.0
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
