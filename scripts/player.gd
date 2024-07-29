@@ -23,12 +23,10 @@ const ANIMATION_STATE := {
 func _ready():
 	playAnimation()
 	animationState = 0
-	
+
 func _physics_process(delta : float) -> void:
-	
 	var direc = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direc * speedVAL 
-
 	move_and_slide()
 	if velocity.length() > 0.0:
 		if animationState < 1:
@@ -40,7 +38,7 @@ func _physics_process(delta : float) -> void:
 	else:
 		if animationState == 1:
 			animationState = 0
-			
+
 	var over_mobs = %HurtBox.get_overlapping_bodies()
 	if over_mobs.size() > 0 :
 		health -= MOB_DAMAGE * delta
@@ -95,8 +93,7 @@ func reset_potions() -> void:
 	animationState = 1
 	speedVAL = 650
 	MOB_DAMAGE = 5.0
-		
-#dialog system
+
 const lines: Array[String] = [
 	"Marco: Hey, you seem pretty strong!",
 	"Asta: Wanna spar?",
