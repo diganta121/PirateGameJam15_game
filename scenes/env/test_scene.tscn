@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doeupmqpx6swi"]
+[gd_scene load_steps=14 format=3 uid="uid://doeupmqpx6swi"]
 
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="2_hsd3w"]
 [ext_resource type="PackedScene" uid="uid://dw33yjkn827ld" path="res://scenes/ledge.tscn" id="4_80vdp"]
@@ -6,10 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dswonmor6mes1" path="res://scenes/gun.tscn" id="6_3fsck"]
 [ext_resource type="PackedScene" uid="uid://b7swo28m1mwdh" path="res://scenes/paths/path1.tscn" id="7_deynb"]
 [ext_resource type="PackedScene" uid="uid://8n4nbql7ovsm" path="res://scenes/paths/pathT.tscn" id="8_4ag5w"]
-[ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/items/potion.tscn" id="8_t8tdq"]
 [ext_resource type="PackedScene" uid="uid://dqy85sfw4vel1" path="res://scenes/items/silver.tscn" id="9_ats8k"]
 [ext_resource type="PackedScene" uid="uid://c3yclwciejcuy" path="res://scenes/paths/pathL.tscn" id="9_mxyh8"]
 [ext_resource type="PackedScene" uid="uid://dkfxvap3ymd24" path="res://scenes/items/gold.tscn" id="10_6rqm2"]
+[ext_resource type="PackedScene" uid="uid://b36dehktveugq" path="res://scenes/items/strength_potion.tscn" id="10_7jjkd"]
+[ext_resource type="PackedScene" uid="uid://bcn5780xvjyjq" path="res://scenes/items/speed_potion.tscn" id="11_l8i5f"]
+[ext_resource type="PackedScene" uid="uid://bc2qsk0smrvhe" path="res://scenes/items/invis_potion.tscn" id="12_jo4rj"]
+[ext_resource type="PackedScene" uid="uid://b4ha32jt1acy8" path="res://scenes/items/healing_potion.tscn" id="13_m7gwx"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -167,33 +170,6 @@ position = Vector2(1010, -269)
 
 [node name="Node" type="Node" parent="."]
 
-[node name="potion" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(172, -158)
-
-[node name="potion2" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(241, -173)
-
-[node name="potion3" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(280, -170)
-
-[node name="potion4" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(265, -302)
-
-[node name="potion5" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(324, -231)
-
-[node name="potion6" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(207, -131)
-
-[node name="potion7" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(568, -235)
-
-[node name="potion8" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(597, -310)
-
-[node name="potion10" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(811, -175)
-
 [node name="silver" parent="." instance=ExtResource("9_ats8k")]
 position = Vector2(-185, 326)
 
@@ -251,8 +227,23 @@ position = Vector2(-490, 685)
 [node name="silver9" parent="." instance=ExtResource("9_ats8k")]
 position = Vector2(-34, 705)
 
-[node name="potion9" parent="." instance=ExtResource("8_t8tdq")]
-position = Vector2(-197, 619)
-
 [node name="gold11" parent="." instance=ExtResource("10_6rqm2")]
 position = Vector2(-122, 641)
+
+[node name="strength" parent="." instance=ExtResource("10_7jjkd")]
+position = Vector2(118, 24)
+
+[node name="speed" parent="." instance=ExtResource("11_l8i5f")]
+position = Vector2(258, 252)
+
+[node name="speed2" parent="." instance=ExtResource("11_l8i5f")]
+position = Vector2(-842, 1642)
+
+[node name="strength2" parent="." instance=ExtResource("10_7jjkd")]
+position = Vector2(-48, 1828)
+
+[node name="invis" parent="." instance=ExtResource("12_jo4rj")]
+position = Vector2(-518, 1350)
+
+[node name="healing" parent="." instance=ExtResource("13_m7gwx")]
+position = Vector2(-224, 1647)

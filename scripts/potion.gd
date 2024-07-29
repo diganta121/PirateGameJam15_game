@@ -9,5 +9,3 @@ func _on_body_entered(body) -> void:
 	if body.has_method("player_id"):
 		game_manager.add_point(itemType)
 		queue_free()
-		print("potion ++")
-	

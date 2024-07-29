@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b36dehktveugq"]
+
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_mqtji"]
+[ext_resource type="Texture2D" uid="uid://b68h125lrri47" path="res://assets/Icon21.png" id="2_l1ris"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfuln"]
+radius = 3.2967
+height = 12.0
+
+[node name="strength" type="Area2D"]
+scale = Vector2(2.73, 2.43182)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mqtji")
+itemType = "strength"
+
+[node name="Icon21" type="Sprite2D" parent="."]
+position = Vector2(7.45058e-09, -0.411215)
+scale = Vector2(0.473214, 0.488317)
+texture = ExtResource("2_l1ris")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lfuln")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

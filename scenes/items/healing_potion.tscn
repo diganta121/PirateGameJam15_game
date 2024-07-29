@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ha32jt1acy8"]
+
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_yq7ri"]
+[ext_resource type="Texture2D" uid="uid://d28rr6yp7bv7m" path="res://assets/Icon16.png" id="2_lti3m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfuln"]
+radius = 2.5641
+height = 12.0
+
+[node name="healing" type="Area2D"]
+scale = Vector2(2.73, 2.43182)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_yq7ri")
+itemType = "enchant"
+
+[node name="Icon16" type="Sprite2D" parent="."]
+position = Vector2(-8.9407e-08, 2.98023e-08)
+scale = Vector2(0.459821, 0.488317)
+texture = ExtResource("2_lti3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lfuln")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

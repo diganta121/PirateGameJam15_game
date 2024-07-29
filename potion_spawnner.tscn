@@ -7,6 +7,12 @@ radius = 23.3452
 
 [node name="PotionSpawnner" type="Area2D"]
 script = ExtResource("1_ej06i")
+item_type = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3opew")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="Timer" type="Timer" parent="."]

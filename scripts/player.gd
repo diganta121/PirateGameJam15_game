@@ -67,7 +67,6 @@ func playAnimation() -> void:
 func strengthplay() -> void:
 	timer.start(30)
 	animationState = 2
-	get_node("/root/Scene/GameManager").PLAYER_SWORD_DAMAGE = 15
 	speedVAL = 600
 
 func speedplay() -> void:
@@ -94,6 +93,7 @@ func take_damage(dmg: int) -> void:
 
 func reset_potions() -> void:
 	animationState = 1
+	speedVAL = 650
 	MOB_DAMAGE = 5.0
 		
 #dialog system

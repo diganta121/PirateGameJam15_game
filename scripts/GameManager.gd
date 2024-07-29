@@ -19,25 +19,30 @@ var enemies
 var GameState := ""
 
 var elements := {
-	"potions":0,
+	"red":0,
+	"blue":0,
 	"gold":0,
-	"silver":0
+	"silver":0,
 	}
 
 var potionlist := {
 	"invisibility":0,
 	"strength":0,
 	"speed":0,
-	"enchant":0
+	"enchant":0,
 	}
 	
 var disable_ai := false
 
 func add_point(element:String) -> void:
-	elements[element] +=1
-	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
-		[elements['potions'],elements["gold"],elements['silver']]
-		)
+	if element in elements.keys():
+		elements[element] +=1
+		score_label.text = "Items \n red: {0} blue {1} gold: {2} silver: {3}".format(
+			[elements['red'],elements['blue'],elements["gold"],elements['silver']]
+			)
+	elif element in potionlist.keys():
+		potionlist[element] +=1
+		update_potion_amount()
 
 func crafter(potion: String) -> void:
 	if potion == 'invisibility':
@@ -136,6 +141,7 @@ func reset_potion_effects() -> void:
 	update_potion_amount()
 
 func start_potion_timer() -> void:
+	%PotionTimerLabel.show()
 	potion_timer = potion_seconds
 	$CanvasLayer/PotionTimer.start(1)
 
@@ -144,11 +150,10 @@ func _on_potion_timer_timeout() -> void:
 		potion_timer -= 1
 		%PotionTimerLabel.text = "0:" + str(potion_timer)
 		$CanvasLayer/PotionTimer.start(1)
-
 	else:
 		$CanvasLayer/esc_menu/AnimationPlayer2.play("timer fade")
+		%PotionTimerLabel.hide()
 		reset_potion_effects()
-
 	update_potion_amount()
 	
 

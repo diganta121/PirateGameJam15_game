@@ -12,9 +12,11 @@ scale = Vector2(2.73, 2.43182)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_ix6bn")
+itemType = ""
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(1.19209e-07, -1.19209e-07)
+rotation = -1.55937
 scale = Vector2(0.414063, 0.414063)
 texture = ExtResource("2_qyjg6")
 
