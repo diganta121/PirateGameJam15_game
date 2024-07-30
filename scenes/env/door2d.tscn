@@ -20,9 +20,6 @@ process_mode = 3
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_cmgkf")
 
-<<<<<<< Updated upstream
 [connection signal="area_entered" from="door" to="." method="_on_door_area_entered"]
-=======
->>>>>>> Stashed changes
 [connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]

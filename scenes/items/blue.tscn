@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dciarpi7mnl8f"]
 
 [ext_resource type="Script" path="res://scripts/potion.gd" id="1_x237j"]
-[ext_resource type="Texture2D" uid="uid://cwq4n42yqbfqp" path="res://assets/Icon8.png" id="2_xcpod"]
+[ext_resource type="Texture2D" uid="uid://bcl8p832dpqr0" path="res://assets/bule_crystals.png" id="2_h53mq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfuln"]
-radius = 2.0
-height = 12.0
+radius = 6.59341
+height = 26.3177
 
 [node name="blue" type="Area2D"]
 scale = Vector2(2.73, 2.43182)
@@ -14,12 +14,13 @@ collision_mask = 4
 script = ExtResource("1_x237j")
 itemType = "blue"
 
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(1.19209e-07, -1.19209e-07)
-scale = Vector2(0.414063, 0.414063)
-texture = ExtResource("2_xcpod")
+[node name="BuleCrystals" type="Sprite2D" parent="."]
+position = Vector2(14.2857, 0.822429)
+scale = Vector2(0.237065, 0.237837)
+texture = ExtResource("2_h53mq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.4652, 0.822429)
 shape = SubResource("CapsuleShape2D_lfuln")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

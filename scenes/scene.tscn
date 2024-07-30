@@ -1,9 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://depguk060dslk"]
+[gd_scene load_steps=22 format=3 uid="uid://depguk060dslk"]
 
-[ext_resource type="PackedScene" uid="uid://doeupmqpx6swi" path="res://scenes/env/test_scene.tscn" id="1_v65mv"]
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_6me2q"]
 [ext_resource type="PackedScene" uid="uid://d1to2hvb1e7vg" path="res://ui/esc_menu.tscn" id="2_32cff"]
-[ext_resource type="PackedScene" uid="uid://c8mjn0h2l8561" path="res://scenes/sword.tscn" id="3_dqd1r"]
 [ext_resource type="FontFile" uid="uid://dbvie114nxi63" path="res://assets/PixelOperator8.ttf" id="3_f1a5k"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_a1xyp"]
 [ext_resource type="Texture2D" uid="uid://b68h125lrri47" path="res://assets/Icon21.png" id="4_d23ut"]
@@ -11,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c5xs0w4qxtcw5" path="res://assets/Icon9.png" id="6_un0er"]
 [ext_resource type="Texture2D" uid="uid://b42d6ei70jy2h" path="res://assets/dbox2.png" id="7_qx2cn"]
 [ext_resource type="Texture2D" uid="uid://d28rr6yp7bv7m" path="res://assets/Icon16.png" id="8_ofemp"]
+[ext_resource type="PackedScene" uid="uid://bowtmopoqfbjy" path="res://scenes/env/castle.tscn" id="11_x6iue"]
 [ext_resource type="PackedScene" uid="uid://cic7c02bekh4i" path="res://scenes/potion_spawnner.tscn" id="12_4o0cq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55l3m"]
@@ -334,18 +333,12 @@ text = "Strength"
 icon = ExtResource("4_d23ut")
 icon_alignment = 2
 
-[node name="TestScene" parent="." instance=ExtResource("1_v65mv")]
-position = Vector2(342.308, -1521.85)
-
 [node name="Player" parent="." instance=ExtResource("2_6me2q")]
 unique_name_in_owner = true
 position = Vector2(288, -180)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.9, 0.9)
-
-[node name="sword" parent="Player" instance=ExtResource("3_dqd1r")]
-rotation = -2.31601
 
 [node name="PotionSpawnner" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(204, -283)
@@ -356,6 +349,9 @@ item_type = "blue"
 
 [node name="PotionSpawnner3" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(413, -366)
+
+[node name="castle" parent="." instance=ExtResource("11_x6iue")]
+position = Vector2(1394.69, -370.86)
 
 [connection signal="timeout" from="GameManager/CanvasLayer/PotionTimer" to="GameManager" method="_on_potion_timer_timeout"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/enchant" to="GameManager" method="_on_enchant_pressed"]

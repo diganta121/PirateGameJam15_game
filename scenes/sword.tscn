@@ -1,126 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8mjn0h2l8561"]
+[gd_scene load_steps=3 format=3 uid="uid://c8mjn0h2l8561"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_no0fk"]
-[ext_resource type="Texture2D" uid="uid://degx8qk5sl4rk" path="res://assets/bass.png" id="2_k8uj5"]
-[ext_resource type="Texture2D" uid="uid://quoakqpeckm" path="res://assets/bullet.png" id="2_lan3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yen7j"]
-radius = 63.6532
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mbpbk"]
-atlas = ExtResource("2_k8uj5")
-region = Rect2(0, 0, 66, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eltdi"]
-atlas = ExtResource("2_lan3c")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fryxn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mbpbk")
-}],
-"loop": true,
-"name": &"enchanted_sword",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eltdi")
-}],
-"loop": true,
-"name": &"sword1",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_8j1ho"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(34, -29)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4.02879]
-}
-
-[sub_resource type="Animation" id="Animation_aptaa"]
-resource_name = "swing_sword"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.15, 0.32, 0.43),
-"transitions": PackedFloat32Array(1, 1.86607, 1, 1, 1),
-"update": 0,
-"values": [Vector2(38, -12), Vector2(25, -24), Vector2(45, -29), Vector2(35, 28), Vector2(38, -12)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.32, 0.34, 0.45),
-"transitions": PackedFloat32Array(1, 0.466516, 1, 0.466516, 1, 1),
-"update": 0,
-"values": [1.5708, 1.73556, 1.309, 4.02879, 3.62649, 1.5708]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p02km"]
-_data = {
-"RESET": SubResource("Animation_8j1ho"),
-"swing_sword": SubResource("Animation_aptaa")
-}
+radius = 85.4751
 
 [node name="sword" type="Area2D"]
-position = Vector2(2, 0)
+position = Vector2(-15, 10)
 collision_mask = 10
 script = ExtResource("1_no0fk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29.3304, -16.2704)
+position = Vector2(21, -14)
 shape = SubResource("CircleShape2D_yen7j")
 
 [node name="AttackCooldownTimer" type="Timer" parent="."]
 wait_time = 0.44
 autostart = true
-
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(34, -29)
-rotation = 4.02879
-scale = Vector2(3.02185, -1.11231)
-sprite_frames = SubResource("SpriteFrames_fryxn")
-animation = &"sword1"
-autoplay = "sword1"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p02km")
-}
 
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_timer_timeout"]

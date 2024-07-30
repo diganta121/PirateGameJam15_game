@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck3uc60aw4b8l"]
 
 [ext_resource type="Script" path="res://scripts/potion.gd" id="1_aqd0t"]
-[ext_resource type="Texture2D" uid="uid://cwq4n42yqbfqp" path="res://assets/Icon8.png" id="2_8intk"]
+[ext_resource type="Texture2D" uid="uid://bpmcuksmo173w" path="res://assets/red_crystals.png" id="2_xcp8w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfuln"]
-radius = 2.0
-height = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c6te"]
+size = Vector2(15.8568, 12.7457)
 
 [node name="red" type="Area2D"]
 scale = Vector2(2.73, 2.43182)
@@ -14,12 +13,14 @@ collision_mask = 4
 script = ExtResource("1_aqd0t")
 itemType = "red"
 
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(1.19209e-07, -1.19209e-07)
-scale = Vector2(0.414063, 0.414063)
-texture = ExtResource("2_8intk")
+[node name="RedCrystals" type="Sprite2D" parent="."]
+position = Vector2(-31.1355, 4.11215)
+scale = Vector2(0.41801, 0.345105)
+texture = ExtResource("2_xcp8w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_lfuln")
+position = Vector2(-8.05861, 0.411215)
+scale = Vector2(2.07904, 2.09709)
+shape = SubResource("RectangleShape2D_3c6te")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkfxvap3ymd24"]
 
 [ext_resource type="Script" path="res://scripts/potion.gd" id="1_c8t2h"]
-[ext_resource type="Texture2D" uid="uid://gn2o47gr7dv5" path="res://assets/asquare.png" id="2_3wx2v"]
+[ext_resource type="Texture2D" uid="uid://b348jlvttya6s" path="res://assets/gold.png" id="2_deh56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egbxx"]
 size = Vector2(30, 27)
@@ -12,13 +12,15 @@ collision_mask = 4
 script = ExtResource("1_c8t2h")
 itemType = "gold"
 
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.525391, 0.509766)
-texture = ExtResource("2_3wx2v")
+[node name="Gold" type="Sprite2D" parent="."]
+position = Vector2(-24, -56)
+scale = Vector2(0.600738, 0.654621)
+texture = ExtResource("2_deh56")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(-2, -3)
+rotation = -0.176404
+scale = Vector2(0.932424, 1.7453)
 shape = SubResource("RectangleShape2D_egbxx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckamw65sycks5"]
+
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_oexre"]
+[ext_resource type="VideoStream" path="res://assets/Serpentine2.ogv" id="1_t67ra"]
+
+[node name="intro" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oexre")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+process_mode = 3
+layout_mode = 2
+tooltip_text = "Press spacebar to skip"
+stream = ExtResource("1_t67ra")
+volume_db = -12.05
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

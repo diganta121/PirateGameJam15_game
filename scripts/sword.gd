@@ -38,8 +38,6 @@ func _unhandled_input(event) -> void:
 func attack() -> void:
 	if is_on_cooldown:
 		return
-	if not flipped:
-		$AnimationPlayer.play("swing_sword")
 	enemies = get_overlapping_bodies()
 	for body in enemies:
 		if body.has_method("enemy_id"):
@@ -56,13 +54,5 @@ func attack() -> void:
 	is_on_cooldown = true
 	attack_cooldown_timer.start(0.2)
 
-func enchantEffect() -> void:
-	swordState = 1
-	%sprite.play(SPRITES[swordState])
-	
-func reset_potions() -> void:
-	swordState = 0
-	%sprite.play("sword1")
-
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	is_on_cooldown = false

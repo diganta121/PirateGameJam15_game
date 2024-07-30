@@ -1,12 +1,12 @@
 extends Node
 
 @onready var PotTimerLabel := $CanvasLayer/PotionTimerLabel
-@onready var score_label := get_node("CanvasLayer/ScoreLabel")
 
 @onready var main_scene := "res://scenes/env/test_scene.tscn"
 @onready var house_scenes := ["res://scenes/env/house_inside_1.tscn"]
 #@onready var story_scene := $""
 
+@onready var score_label := get_node("CanvasLayer/ScoreLabel")
 @onready var player := get_node("/root/Scene/Player")
 @onready var sword := get_node("/root/Scene/Player/sword")
 
