@@ -104,7 +104,7 @@ const lines: Array[String] = [
 	"Naruto: I shouldn't waste my energy before an important battle."
 	]
 var ran =false
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed("advance_dialog") and scene_name == 'dscene' and ran == false:
 		DialogManager.start_dialog(global_position, lines)
 		ran=true
@@ -123,5 +123,8 @@ func add_health() -> void:
 			health = 100.0
 		$healthBar.value = health
 
-func _on_sword_slash_sword():
+func _on_sword_slash_sword() -> void:
 	animationState = 4
+	
+func unalive() -> void:
+	alive = not alive

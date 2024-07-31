@@ -9,6 +9,8 @@ func _ready() ->void:
 	d = {
 		'red':red_spawner,
 		'blue':blue_spawner,
+		'gold':gold_spawner,
+		'silver':silver_spawner,
 		'speed':speed_pot_spawner,
 		'healing':heal_pot_spawner,
 		'invis':invis_pot_spawner,
@@ -45,6 +47,12 @@ func speed_pot_spawner()->PackedScene:
 
 func invis_pot_spawner()->PackedScene:
 	return preload("res://scenes/items/invis_potion.tscn")
+
+func gold_spawner()->PackedScene:
+	return preload("res://scenes/items/gold.tscn")
+
+func silver_spawner()->PackedScene:
+	return preload("res://scenes/items/silver.tscn")
 
 
 func _on_timer_timeout():

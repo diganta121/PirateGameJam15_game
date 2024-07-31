@@ -6,7 +6,7 @@ var move_timer := 0
 var player
 
 @export var health := 350
-
+signal bosss_dead
 func _physics_process(_delta: float) -> void:
 	if not player:
 		return
@@ -52,6 +52,7 @@ func take_damage(damage:int)-> void:
 	health -= damage
 	if health <= 0:
 		print('dead')
+		bosss_dead.emit()
 		queue_free()
 
 func summon_enemies() -> void:

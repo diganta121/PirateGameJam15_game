@@ -15,7 +15,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("use_door"):
 			print("check door input")
 			if go_to == 'castle':
-				get_tree().change_scene_to_file("res://scenes/env/castle.tscn")
+				get_tree().change_scene_to_file("res://scenes/scene.tscn")
 			if go_to == 'house':
 				get_tree().change_scene_to_file("res://scenes/env/house_inside_1.tscn")
 			if go_to == 'small_house':

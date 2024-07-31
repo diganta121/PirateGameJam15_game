@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx11bkvrufi1g"]
+[gd_scene load_steps=5 format=3 uid="uid://dx11bkvrufi1g"]
 
 [ext_resource type="Script" path="res://scripts/enemy_1ai.gd" id="1_8eywu"]
-[ext_resource type="Texture2D" uid="uid://degx8qk5sl4rk" path="res://assets/bass.png" id="1_qjxlx"]
-[ext_resource type="Texture2D" uid="uid://bv5d8iu63ng5d" path="res://assets/enemy_placeholder.png" id="2_n700a"]
+[ext_resource type="Texture2D" uid="uid://bsybplc8wxpy2" path="res://assets/cult dude.png" id="3_6rjuq"]
 [ext_resource type="PackedScene" uid="uid://hix7pyn0od8r" path="res://scenes/enemygun.tscn" id="3_ssmk0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qyln"]
@@ -16,19 +15,16 @@ script = ExtResource("1_8eywu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0qyln")
 
-[node name="Bass" type="Sprite2D" parent="."]
-position = Vector2(1, -3)
-texture = ExtResource("1_qjxlx")
-
-[node name="EnemyPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-texture = ExtResource("2_n700a")
-
 [node name="Gun" parent="." instance=ExtResource("3_ssmk0")]
 bulletType = "bullet1"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 300.0
 autostart = true
+
+[node name="CultDude" type="Sprite2D" parent="."]
+position = Vector2(2, -7)
+scale = Vector2(2.36185, 2.24835)
+texture = ExtResource("3_6rjuq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

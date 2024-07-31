@@ -15,8 +15,8 @@ script = ExtResource("1_x237j")
 itemType = "blue"
 
 [node name="BuleCrystals" type="Sprite2D" parent="."]
-position = Vector2(14.2857, 0.822429)
-scale = Vector2(0.237065, 0.237837)
+position = Vector2(12.8205, 0.822429)
+scale = Vector2(0.207825, 0.200265)
 texture = ExtResource("2_h53mq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1873,12 +1873,24 @@ to play !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label5" type="Label" parent="."]
+offset_left = -471.0
+offset_top = 16.0
+offset_right = 133.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.251624, 0.25287, 0.247189, 1)
+theme_override_fonts/font = ExtResource("4_0g78o")
+theme_override_font_sizes/font_size = 32
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label3" type="Label" parent="."]
-offset_left = -267.0
-offset_top = -7.0
-offset_right = -57.0
-offset_bottom = 33.0
+offset_left = -300.0
+offset_top = -35.0
+offset_right = -25.0
+offset_bottom = 5.0
 theme_override_colors/font_color = Color(0.572549, 0.345098, 0.788235, 1)
 theme_override_fonts/font = ExtResource("4_0g78o")
 theme_override_font_sizes/font_size = 40
-text = "PLAY !"
+text = "castle !"

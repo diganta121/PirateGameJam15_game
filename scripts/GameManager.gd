@@ -2,10 +2,6 @@ extends Node
 
 @onready var PotTimerLabel := $CanvasLayer/PotionTimerLabel
 
-@onready var main_scene := "res://scenes/env/test_scene.tscn"
-@onready var house_scenes := ["res://scenes/env/house_inside_1.tscn"]
-#@onready var story_scene := $""
-
 @onready var score_label := get_node("CanvasLayer/ScoreLabel")
 @onready var player := get_node("/root/Scene/Player")
 @onready var sword := get_node("/root/Scene/Player/sword")
@@ -46,45 +42,45 @@ func add_point(element:String) -> void:
 
 func crafter(potion: String) -> void:
 	if potion == 'invisibility':
-		if elements['potions'] >= 5 and elements['silver'] >= 3:
+		if elements['red'] >= 4 and elements['gold'] >= 5:
 			potionlist['invisibility'] += 1
-			elements['potions'] -=5
-			elements['silver'] -=3
+			elements['red'] -=4
+			elements['gold'] -=5
 			add_items()
 		else:
 			not_enough_items()
 	if potion == 'strength':
-		if elements['potions'] >= 5 and elements['gold'] >= 5:
+		if elements['red'] >= 3 and elements['silver'] >= 3:
 			potionlist['strength'] += 1
-			elements['potions'] -=5
-			elements['gold'] -=5
+			elements['red'] -=3
+			elements['silver'] -= 3
 			print('Potion crafted')
 			add_items()
 		else:
 			not_enough_items()
 
 	if potion == 'speed':
-		if elements['potions'] >= 10 and elements['gold'] >= 2:
+		if elements['blue'] >= 2 and elements['gold'] >= 1:
 			potionlist['speed'] += 1
 			print('Potion crafted')
-			elements['potions'] -=10
-			elements['gold'] -=2
+			elements['blue'] -= 2
+			elements['gold'] -= 1
 			add_items()
 		else:
 			not_enough_items()
 			
 	if potion == 'enchant':
-		if elements['potions'] >= 5 and elements['silver'] >= 5 and elements['gold'] >= 2:
+		if elements['red'] >= 1 and elements['blue'] >= 1 and elements['gold'] >= 2:
 			potionlist['enchant'] += 1
 			print('Potion crafted')
-			elements['potions'] -=5
-			elements['silver'] -=4
+			elements['red'] -=1
+			elements['blue'] -=1
 			add_items()
 		else:
 			not_enough_items()
-	score_label.text = "Items \n potions: {0}    gold: {1}  silver: {2}".format(
-		[elements['potions'],elements["gold"],elements['silver']]
-		)
+	score_label.text = "Items \n red: {0} blue {1} gold: {2} silver: {3}".format(
+			[elements['red'],elements['blue'],elements["gold"],elements['silver']]
+			)
 	update_potion_amount()
 	print(potionlist)
 	
@@ -157,8 +153,22 @@ func _on_potion_timer_timeout() -> void:
 	update_potion_amount()
 	
 func _on_give_up_pressed():
-	pass # Replace with function body.
-
+	get_tree().paused = false
+	get_tree().quit()
 
 func _on_retry_pressed():
+	$CanvasLayer/dead_screen.hide()
+	get_tree().paused = false
+	
+	get_tree().reload_current_scene()
+	
+
+
+func _on_dark_boss_bosss_dead():
 	pass # Replace with function body.
+
+
+func _on_player_player_dead():
+	player.unalive
+	$CanvasLayer/dead_screen.show()
+	get_tree().paused = true

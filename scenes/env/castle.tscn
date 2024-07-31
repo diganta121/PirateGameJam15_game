@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bowtmopoqfbjy"]
+[gd_scene load_steps=16 format=3 uid="uid://bowtmopoqfbjy"]
 
 [ext_resource type="Texture2D" uid="uid://cr70ip7qpet45" path="res://assets/tile_res.png" id="1_pehji"]
-[ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_q6acf"]
 [ext_resource type="Texture2D" uid="uid://dp0at6sid2dxh" path="res://assets/monotile.png" id="2_vfnso"]
 [ext_resource type="PackedScene" uid="uid://cygmx60m4qix1" path="res://scenes/env/door2d.tscn" id="3_1gyhc"]
 [ext_resource type="Texture2D" uid="uid://bxbch07do6kb5" path="res://assets/01.png" id="5_rqu7h"]
@@ -33963,15 +33962,6 @@ sprite_frames = SubResource("SpriteFrames_qo0ul")
 autoplay = "default"
 frame_progress = 0.678582
 
-[node name="Player" parent="." instance=ExtResource("2_q6acf")]
-position = Vector2(1259, 345)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(2.11262, 5.80966)
-scale = Vector2(0.303271, 0.31098)
-zoom = Vector2(1.2, 1.2)
-position_smoothing_enabled = true
-
 [node name="Node2D" parent="." instance=ExtResource("3_1gyhc")]
 position = Vector2(1208, 344)
 scale = Vector2(0.786877, 1.03407)
@@ -34020,11 +34010,6 @@ position = Vector2(1349, 247)
 position = Vector2(83.5, 100.5)
 scale = Vector2(1.0203, 1.04342)
 shape = SubResource("RectangleShape2D_grrw3")
-
-[node name="Node2D2" parent="." instance=ExtResource("3_1gyhc")]
-position = Vector2(778, 289)
-scale = Vector2(0.294228, 0.375149)
-go_to = "game"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 914.0

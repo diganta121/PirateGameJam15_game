@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://wockht43v4fl"]
 
-[ext_resource type="Texture2D" uid="uid://degx8qk5sl4rk" path="res://assets/bass.png" id="1_0luto"]
 [ext_resource type="Script" path="res://scripts/dark_boss.gd" id="1_3l3ib"]
+[ext_resource type="Texture2D" uid="uid://cyun7wyboyys5" path="res://assets/dark_boss.webp" id="2_su74h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5kkn"]
-radius = 31.0
-height = 108.0
+radius = 39.9998
+height = 130.012
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fv48g"]
 radius = 33.0151
@@ -19,7 +19,8 @@ collision_mask = 5
 script = ExtResource("1_3l3ib")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -2)
+position = Vector2(1, 3)
+rotation = -1.57391
 shape = SubResource("CapsuleShape2D_r5kkn")
 
 [node name="ShockWaveArea2D" type="Area2D" parent="."]
@@ -31,12 +32,6 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShockWaveArea2D"]
 shape = SubResource("CircleShape2D_fv48g")
 
-[node name="Bass" type="Sprite2D" parent="."]
-position = Vector2(-2, -5.58794e-09)
-rotation = 1.58709
-scale = Vector2(1.32958, 1.55729)
-texture = ExtResource("1_0luto")
-
 [node name="attack range" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -47,6 +42,11 @@ shape = SubResource("CircleShape2D_icd1y")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.665
 autostart = true
+
+[node name="DarkBoss" type="Sprite2D" parent="."]
+position = Vector2(9, -16)
+scale = Vector2(0.405525, 0.392773)
+texture = ExtResource("2_su74h")
 
 [connection signal="body_entered" from="attack range" to="." method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

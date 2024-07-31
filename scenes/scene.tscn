@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://depguk060dslk"]
+[gd_scene load_steps=28 format=3 uid="uid://depguk060dslk"]
 
 [ext_resource type="PackedScene" uid="uid://ghkd0jp7xmqe" path="res://scenes/player.tscn" id="2_6me2q"]
 [ext_resource type="PackedScene" uid="uid://d1to2hvb1e7vg" path="res://ui/esc_menu.tscn" id="2_32cff"]
@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cic7c02bekh4i" path="res://scenes/potion_spawnner.tscn" id="12_4o0cq"]
 [ext_resource type="PackedScene" uid="uid://wockht43v4fl" path="res://scenes/dark_boss.tscn" id="12_4pqaj"]
 [ext_resource type="PackedScene" uid="uid://dx11bkvrufi1g" path="res://scenes/enemy_1.tscn" id="13_l82kx"]
+[ext_resource type="PackedScene" uid="uid://dkfxvap3ymd24" path="res://scenes/items/gold.tscn" id="14_dnyc5"]
+[ext_resource type="PackedScene" uid="uid://dciarpi7mnl8f" path="res://scenes/items/blue.tscn" id="15_3pqq6"]
+[ext_resource type="PackedScene" uid="uid://ck3uc60aw4b8l" path="res://scenes/items/red.tscn" id="16_gq4t0"]
+[ext_resource type="PackedScene" uid="uid://dqy85sfw4vel1" path="res://scenes/items/silver.tscn" id="17_65g7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55l3m"]
 bg_color = Color(0.411765, 0.164706, 0.745098, 0.443137)
@@ -173,11 +177,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_xf6xh")
 [node name="castle" parent="." instance=ExtResource("11_x6iue")]
 position = Vector2(-8, -9)
 
-[node name="Node2D" parent="castle" index="3"]
+[node name="Node2D" parent="castle" index="2"]
 position = Vector2(1969, 355)
-
-[node name="Node2D2" parent="castle" index="5"]
-position = Vector2(2280, 289)
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("4_a1xyp")
@@ -185,12 +186,15 @@ script = ExtResource("4_a1xyp")
 [node name="CanvasLayer" type="CanvasLayer" parent="GameManager"]
 
 [node name="dead_screen" type="Control" parent="GameManager/CanvasLayer"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.991802, 0.988497)
 
 [node name="Label" type="Label" parent="GameManager/CanvasLayer/dead_screen"]
+layout_mode = 0
 offset_left = 510.0
 offset_top = 282.0
 offset_right = 718.0
@@ -198,7 +202,7 @@ offset_bottom = 324.0
 theme_override_font_sizes/font_size = 30
 text = "RIP player"
 
-[node name="Button" type="Button" parent="GameManager/CanvasLayer/dead_screen"]
+[node name="retry" type="Button" parent="GameManager/CanvasLayer/dead_screen"]
 custom_minimum_size = Vector2(160.215, 0)
 layout_mode = 0
 offset_left = 505.0
@@ -378,13 +382,6 @@ text = "Strength"
 icon = ExtResource("4_d23ut")
 icon_alignment = 2
 
-[node name="Player" parent="." instance=ExtResource("2_6me2q")]
-unique_name_in_owner = true
-position = Vector2(198, 511)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.9, 0.9)
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="PotionSpawnner" parent="." instance=ExtResource("12_4o0cq")]
@@ -393,6 +390,26 @@ position = Vector2(143, 168)
 [node name="PotionSpawnner2" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(1054, 183)
 item_type = "blue"
+
+[node name="PotionSpawnner8" parent="." instance=ExtResource("12_4o0cq")]
+position = Vector2(785, 660)
+item_type = "gold"
+
+[node name="PotionSpawnner9" parent="." instance=ExtResource("12_4o0cq")]
+position = Vector2(548, 642)
+item_type = "silver"
+
+[node name="PotionSpawnner10" parent="." instance=ExtResource("12_4o0cq")]
+position = Vector2(81, 349)
+item_type = "silver"
+
+[node name="PotionSpawnner11" parent="." instance=ExtResource("12_4o0cq")]
+position = Vector2(560, 17)
+item_type = "silver"
+
+[node name="PotionSpawnner12" parent="." instance=ExtResource("12_4o0cq")]
+position = Vector2(884, 11)
+item_type = "gold"
 
 [node name="PotionSpawnner3" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(1017, 531)
@@ -403,11 +420,11 @@ item_type = "blue"
 
 [node name="PotionSpawnner5" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(375, 594)
-item_type = "health"
+item_type = "healing"
 
 [node name="PotionSpawnner7" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(450, 101)
-item_type = "health"
+item_type = "healing"
 
 [node name="PotionSpawnner6" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(380, 375)
@@ -422,6 +439,37 @@ position = Vector2(668, 578)
 [node name="enemy2" parent="." instance=ExtResource("13_l82kx")]
 position = Vector2(309, 172)
 
+[node name="gold" parent="." instance=ExtResource("14_dnyc5")]
+position = Vector2(417, 652)
+
+[node name="blue" parent="." instance=ExtResource("15_3pqq6")]
+position = Vector2(988, 641)
+
+[node name="red" parent="." instance=ExtResource("16_gq4t0")]
+position = Vector2(656, 644)
+
+[node name="red2" parent="." instance=ExtResource("16_gq4t0")]
+position = Vector2(755, 5)
+
+[node name="red3" parent="." instance=ExtResource("16_gq4t0")]
+position = Vector2(1157, 150)
+
+[node name="gold2" parent="." instance=ExtResource("14_dnyc5")]
+position = Vector2(206, 630)
+
+[node name="silver" parent="." instance=ExtResource("17_65g7h")]
+position = Vector2(489, 627)
+
+[node name="Player" parent="." instance=ExtResource("2_6me2q")]
+position = Vector2(1259, 345)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2.11262, 5.80966)
+scale = Vector2(0.303271, 0.31098)
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+
+[connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/retry" to="GameManager" method="_on_retry_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/give_up" to="GameManager" method="_on_give_up_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/give_up" to="GameManager" method="_on_button_2_pressed"]
 [connection signal="timeout" from="GameManager/CanvasLayer/PotionTimer" to="GameManager" method="_on_potion_timer_timeout"]
@@ -429,5 +477,6 @@ position = Vector2(309, 172)
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/invis" to="GameManager" method="_on_invis_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/speed" to="GameManager" method="_on_speed_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/strength" to="GameManager" method="_on_strength_pressed"]
+[connection signal="bosss_dead" from="DarkBoss" to="GameManager" method="_on_dark_boss_bosss_dead"]
 
 [editable path="castle"]
