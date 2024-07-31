@@ -62,6 +62,6 @@ func summon_enemies() -> void:
 	add_child(enemy_char)
 
 func _on_timer_timeout() -> void:
-	var num := randi_range(1,5)
+	var num := randi_range(1,9)
 	for i in range(num):
 		summon_enemies()
