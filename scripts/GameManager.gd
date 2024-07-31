@@ -156,4 +156,9 @@ func _on_potion_timer_timeout() -> void:
 		reset_potion_effects()
 	update_potion_amount()
 	
+func _on_give_up_pressed():
+	pass # Replace with function body.
 
+
+func _on_retry_pressed():
+	pass # Replace with function body.

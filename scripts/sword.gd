@@ -6,6 +6,7 @@ var enemies
 @onready var gameManager := get_node("/root/Scene/GameManager")
 @onready var attack_cooldown_timer := $AttackCooldownTimer
 
+signal slash_sword
 const SPRITES := {
 	0: 'sword1',
 	1: 'enchanted_sword'
@@ -20,17 +21,6 @@ func _ready() -> void:
 	attack_cooldown_timer.wait_time = 0.2 # Set cooldown duration to 1 second
 	attack_cooldown_timer.one_shot = true
 
-	
-func _physics_process(_delta: float) -> void:
-	if swordState != prevSwordState:
-		%sprite.play(SPRITES[swordState])
-	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
-		%sprite.flip_h = true
-		flipped = true
-	else:
-		%sprite.flip_h = false
-		flipped = false
-		
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("attack") and not is_on_cooldown:
 		attack()
@@ -39,6 +29,9 @@ func attack() -> void:
 	if is_on_cooldown:
 		return
 	enemies = get_overlapping_bodies()
+	if enemies.size() == 0:
+		return
+	slash_sword.emit()
 	for body in enemies:
 		if body.has_method("enemy_id"):
 			body.take_damage(gameManager.PLAYER_SWORD_DAMAGE)

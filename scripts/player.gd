@@ -59,6 +59,9 @@ func playAnimation() -> void:
 		Sprite.play("strength")
 	elif animationState == 3:
 		Sprite.play("speed")
+	elif animationState == 4:
+		Sprite.play("attack")
+		animationState = 1
 	elif animationState == 0:
 		Sprite.play("idle")
 
@@ -119,3 +122,6 @@ func add_health() -> void:
 		else:
 			health = 100.0
 		$healthBar.value = health
+
+func _on_sword_slash_sword():
+	animationState = 4
