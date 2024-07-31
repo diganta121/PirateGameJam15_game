@@ -185,13 +185,40 @@ script = ExtResource("4_a1xyp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameManager"]
 
+[node name="won" type="Control" parent="GameManager/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameManager/CanvasLayer/won"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 280.0
+offset_right = 965.0
+offset_bottom = 349.0
+theme_override_font_sizes/font_size = 50
+text = "you have defeated the game"
+
 [node name="dead_screen" type="Control" parent="GameManager/CanvasLayer"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.991802, 0.988497)
+
+[node name="Panel" type="Panel" parent="GameManager/CanvasLayer/dead_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 29.375
+anchor_bottom = 16.65
+offset_right = -0.00012207
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="GameManager/CanvasLayer/dead_screen"]
 layout_mode = 0
@@ -382,6 +409,10 @@ text = "Strength"
 icon = ExtResource("4_d23ut")
 icon_alignment = 2
 
+[node name="game over timer" type="Timer" parent="GameManager"]
+wait_time = 30.0
+one_shot = true
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="PotionSpawnner" parent="." instance=ExtResource("12_4o0cq")]
@@ -392,38 +423,38 @@ position = Vector2(1054, 183)
 item_type = "blue"
 
 [node name="PotionSpawnner8" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(785, 660)
+position = Vector2(788, 462)
 item_type = "gold"
 
 [node name="PotionSpawnner9" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(548, 642)
+position = Vector2(628, 479)
 item_type = "silver"
 
 [node name="PotionSpawnner10" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(81, 349)
+position = Vector2(238, 328)
 item_type = "silver"
 
 [node name="PotionSpawnner11" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(560, 17)
+position = Vector2(415, 297)
 item_type = "silver"
 
 [node name="PotionSpawnner12" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(884, 11)
+position = Vector2(897, 158)
 item_type = "gold"
 
 [node name="PotionSpawnner3" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(1017, 531)
+position = Vector2(969, 474)
 
 [node name="PotionSpawnner4" parent="." instance=ExtResource("12_4o0cq")]
 position = Vector2(716, 114)
 item_type = "blue"
 
 [node name="PotionSpawnner5" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(375, 594)
+position = Vector2(468, 411)
 item_type = "healing"
 
 [node name="PotionSpawnner7" parent="." instance=ExtResource("12_4o0cq")]
-position = Vector2(450, 101)
+position = Vector2(478, 183)
 item_type = "healing"
 
 [node name="PotionSpawnner6" parent="." instance=ExtResource("12_4o0cq")]
@@ -435,9 +466,6 @@ position = Vector2(907, 200)
 
 [node name="enemy1" parent="." instance=ExtResource("13_l82kx")]
 position = Vector2(668, 578)
-
-[node name="enemy2" parent="." instance=ExtResource("13_l82kx")]
-position = Vector2(309, 172)
 
 [node name="gold" parent="." instance=ExtResource("14_dnyc5")]
 position = Vector2(417, 652)
@@ -477,6 +505,8 @@ position_smoothing_enabled = true
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/invis" to="GameManager" method="_on_invis_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/speed" to="GameManager" method="_on_speed_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/strength" to="GameManager" method="_on_strength_pressed"]
+[connection signal="timeout" from="GameManager/game over timer" to="GameManager" method="_on_game_over_timer_timeout"]
 [connection signal="bosss_dead" from="DarkBoss" to="GameManager" method="_on_dark_boss_bosss_dead"]
+[connection signal="player_dead" from="Player" to="GameManager" method="_on_player_player_dead"]
 
 [editable path="castle"]

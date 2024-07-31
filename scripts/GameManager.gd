@@ -159,14 +159,19 @@ func _on_give_up_pressed():
 func _on_retry_pressed():
 	$CanvasLayer/dead_screen.hide()
 	get_tree().paused = false
-	reset_potion_effects()
 	get_tree().reload_current_scene()
 	player.health = 100
+	player.unalive()
 	
 func _on_dark_boss_bosss_dead():
-	pass # Replace with function body.
+	$CanvasLayer/won.show()
+	$"game over timer".start(30)
 
 func _on_player_player_dead():
-	player.unalive
+	player.unalive()
 	$CanvasLayer/dead_screen.show()
 	get_tree().paused = true
+
+func _on_game_over_timer_timeout():
+	#ABHI switch to main menu
+	pass # Replace with function body.

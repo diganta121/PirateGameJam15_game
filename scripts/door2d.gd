@@ -11,7 +11,6 @@ func _on_door_body_exited(body):
 
 func _physics_process(delta):
 	if entered == true:
-		print(1)
 		if Input.is_action_just_pressed("use_door"):
 			print("check door input")
 			if go_to == 'castle':

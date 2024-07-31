@@ -15,10 +15,6 @@ func _physics_process(_delta: float) -> void:
 	move_timer -= 1
 	var distance := global_position.distance_to(player.global_position)
 
-	if distance < 70:
-		if randf() < 0.1:
-			direction = -direction
-			move_timer = 5
 	if move_timer <= 2:
 		if distance < 300:
 			if randf() < 0.1:
