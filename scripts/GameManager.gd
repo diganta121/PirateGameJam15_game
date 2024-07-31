@@ -159,14 +159,12 @@ func _on_give_up_pressed():
 func _on_retry_pressed():
 	$CanvasLayer/dead_screen.hide()
 	get_tree().paused = false
-	
+	reset_potion_effects()
 	get_tree().reload_current_scene()
+	player.health = 100
 	
-
-
 func _on_dark_boss_bosss_dead():
 	pass # Replace with function body.
-
 
 func _on_player_player_dead():
 	player.unalive

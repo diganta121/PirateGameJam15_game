@@ -1768,12 +1768,12 @@ go_to = "house"
 [node name="door3" parent="." instance=ExtResource("2_8cw57")]
 position = Vector2(744, 867)
 scale = Vector2(-0.269666, 0.645065)
-go_to = "small_house"
+go_to = "small"
 
 [node name="door4" parent="." instance=ExtResource("2_8cw57")]
 position = Vector2(1025, 1404)
 scale = Vector2(0.432159, 0.552181)
-go_to = "small_house"
+go_to = "small"
 
 [node name="Player" parent="." instance=ExtResource("3_y8vwa")]
 position = Vector2(2071, 1033)

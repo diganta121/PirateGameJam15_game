@@ -16,8 +16,6 @@ func pause_menu() -> void:
 		$".".show()
 		get_tree().paused = true
 	paused = !paused
-	
-
 
 func _on_resume_pressed() -> void:
 	pause_menu()
