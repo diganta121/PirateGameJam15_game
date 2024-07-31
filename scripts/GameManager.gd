@@ -173,5 +173,4 @@ func _on_player_player_dead():
 	get_tree().paused = true
 
 func _on_game_over_timer_timeout():
-	#ABHI switch to main menu
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/scene.tscn")

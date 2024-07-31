@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvpjy84o64wx"]
 
-[ext_resource type="FontFile" uid="uid://df2205wx8v0w3" path="res://fonts/PixelOperator8-Bold.ttf" id="1_dy8jp"]
-[ext_resource type="Script" path="res://scripts/ctrl.gd" id="1_kl2tj"]
-[ext_resource type="FontFile" uid="uid://citb5vwo4jemk" path="res://fonts/PixelOperator8.ttf" id="2_bjwki"]
+[ext_resource type="FontFile" uid="uid://du1rhace7jr11" path="res://assets/PixelOperator8-Bold.ttf" id="1_dy8jp"]
+[ext_resource type="Script" path="res://ui/ui2/ctrl.gd" id="1_kl2tj"]
+[ext_resource type="FontFile" uid="uid://dbvie114nxi63" path="res://assets/PixelOperator8.ttf" id="2_bjwki"]
 
 [node name="ctrl" type="Node2D"]
 script = ExtResource("1_kl2tj")
@@ -67,19 +67,14 @@ layout_mode = 2
 theme_override_constants/line_spacing = 17
 theme_override_fonts/font = ExtResource("2_bjwki")
 theme_override_font_sizes/font_size = 24
-text = "W - JUMP
+text = "W - up
 A - LEFT
 S - DOWN
 D - RIGHT
 
 UP ARROW - JUMP
-LEFT ARROW - LEFT
-DOWN ARROW - DOWN
-RIGHT ARROW - RIGHT
-
-INTERACT -
-
-SWITCH -
+ATTACK - RIGHT CLICK
+INTERACT - E
 
 POTIONS - ESC"
 vertical_alignment = 1

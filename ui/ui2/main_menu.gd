@@ -16,7 +16,7 @@ func on_exit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/player.tscn")
+	get_tree().change_scene_to_file("res://scenes/env/tester.tscn")
 
 
 func _on_ctrl_pressed() -> void:

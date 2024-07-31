@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-var game = preload("res://scenes/env/tester.tscn")
+var game = preload("res://ui/ui2/m_menu.tscn")
 func _on_video_stream_player_finished():
 	get_tree().change_scene_to_packed(game)
 func _unhandled_input(event):
