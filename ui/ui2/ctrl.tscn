@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvpjy84o64wx"]
+
+[ext_resource type="FontFile" uid="uid://df2205wx8v0w3" path="res://fonts/PixelOperator8-Bold.ttf" id="1_dy8jp"]
+[ext_resource type="Script" path="res://scripts/ctrl.gd" id="1_kl2tj"]
+[ext_resource type="FontFile" uid="uid://citb5vwo4jemk" path="res://fonts/PixelOperator8.ttf" id="2_bjwki"]
+
+[node name="ctrl" type="Node2D"]
+script = ExtResource("1_kl2tj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.210419, 0.000453488, 0.509473, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 467.0
+offset_top = 46.0
+offset_right = 723.0
+offset_bottom = 78.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.585157, 0.277716, 0.780516, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("1_dy8jp")
+theme_override_font_sizes/font_size = 56
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 373.0
+offset_top = 191.0
+offset_right = 780.0
+offset_bottom = 541.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 17
+theme_override_fonts/font = ExtResource("2_bjwki")
+theme_override_font_sizes/font_size = 24
+text = "W - JUMP
+A - LEFT
+S - DOWN
+D - RIGHT
+
+UP ARROW - JUMP
+LEFT ARROW - LEFT
+DOWN ARROW - DOWN
+RIGHT ARROW - RIGHT
+
+INTERACT -
+
+SWITCH -
+
+POTIONS - ESC"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+process_mode = 3
+offset_left = 34.0
+offset_top = 32.0
+offset_right = 126.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_bjwki")
+theme_override_font_sizes/font_size = 24
+text = "< Back"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

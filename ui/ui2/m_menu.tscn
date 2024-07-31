@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsqu5y1dhyklv"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_sknuj"]
+[ext_resource type="Texture2D" uid="uid://cd0yncq4kyr4r" path="res://assets/intro image.png" id="2_im5us"]
+[ext_resource type="FontFile" uid="uid://citb5vwo4jemk" path="res://fonts/PixelOperator8.ttf" id="3_hy1mk"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sknuj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.999998
+offset_top = -1.0
+offset_right = 1407.0
+offset_bottom = 791.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.452112, 0.452112)
+texture = ExtResource("2_im5us")
+expand_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 349.0
+offset_top = 452.0
+offset_right = 820.0
+offset_bottom = 492.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="play" type="Button" parent="HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hy1mk")
+theme_override_font_sizes/font_size = 24
+text = "Play"
+
+[node name="ctrl" type="Button" parent="HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hy1mk")
+theme_override_font_sizes/font_size = 24
+text = "Controls"
+
+[node name="qt" type="Button" parent="HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(136, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hy1mk")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="HBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/ctrl" to="." method="_on_play_pressed"]
