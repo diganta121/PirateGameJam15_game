@@ -498,8 +498,8 @@ zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 
 [connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/retry" to="GameManager" method="_on_retry_pressed"]
-[connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/give_up" to="GameManager" method="_on_give_up_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/give_up" to="GameManager" method="_on_button_2_pressed"]
+[connection signal="pressed" from="GameManager/CanvasLayer/dead_screen/give_up" to="GameManager" method="_on_give_up_pressed"]
 [connection signal="timeout" from="GameManager/CanvasLayer/PotionTimer" to="GameManager" method="_on_potion_timer_timeout"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/enchant" to="GameManager" method="_on_enchant_pressed"]
 [connection signal="pressed" from="GameManager/CanvasLayer/GridContainer/invis" to="GameManager" method="_on_invis_pressed"]
